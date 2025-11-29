@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment
+.venv/
+venv/
+ENV/
+env/
+menv/
+
+# Virtual environment old style
+site-packages/
+
+# PyCharm
+.idea/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Node
+node_modules/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files
+data/
