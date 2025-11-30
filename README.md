@@ -12,13 +12,40 @@ Folder structure
 - `data_stats_and_sampling.py` — Load SQuAD `train.json`, generate dataset visualizations and simple dataset stats.
 - `feature_extractor.py` — Cleanup text and compute linguistic features used by the classifier.
 - `main.py` — Orchestrates the full pipeline (load, feature extraction, surprisal, training, results & graphs).
-- `pca.py` — Perform PCA analysis on feature space and save visualizations and analysis to `results`.
 - `surprisal.py` — Compute token-level surprisal using GPT-2 and BERT. Uses transformers and PyTorch; can use GPU if available.
 - `data/` — Place the `train.json` and `dev.json` (SQuAD) files here.
 - `results/` — Output directory with `run_<N>_passages` subfolders (contains raw sentences, features, plots, model files, etc.).
-- `menv/` — (Optional) local Python virtual environment included in the workspace.
 
-Getting started
+## Final Results – Performance Across Training Data Size
+
+| Passages Sampled | Total Sentences | Answer Ratio | Accuracy | F1 (Answer Class) |
+|------------------|-----------------|--------------|----------|-------------------|
+| 100              | 577             | 73.5%        | **70.69%**   | **0.7927** (best) |
+| 250              | 1,236           | 66.6%        | 63.31%   | 0.7093            |
+| 500              | 2,277           | 68.3%        | 66.01%   | 0.7404            |
+| 1,000            | 4,485           | 63.8%        | 69.12%   | 0.7480            |
+| **2,000**        | **8,328**       | **62.2%**    | **69.27%**   | **0.7377**        |
+
+**Best model**: 2,000 passages → **69.27% accuracy**, **0.7377 F1** on the Answer class  
+Ablation with only top-10 features: **68.29% accuracy / 0.7360 F1** → negligible drop!
+
+## Feature List (26 Total)
+
+| Category              | Features |
+|-----------------------|--------|
+| **Surface**           | `sentence_length_words`, `sentence_position`, `sentence_position_norm` |
+| **Lexical**           | `type_token_ratio`, `lexical_density` |
+| **POS Ratios**        | `noun_ratio`, `verb_ratio`, `adj_ratio`, `pronoun_ratio` |
+| **Discourse**         | `named_entity_density`, causal/contrast marker ratios |
+| **Surprisal – GPT-2** (CUDA) | `gpt2_surprisal_mean`, `sum`, `std`, `var`, `min`, `max` |
+| **Surprisal – BERT**  (CUDA) | `bert_surprisal_mean`, `sum`, `std`, `var`, `min`, `max` |
+
+**Top 3 most predictive features**:
+1. `sentence_position` (coefficient: -0.796) → answers appear early
+2. `gpt2_surprisal_sum` (+0.663)
+3. `gpt2_surprisal_var` (-0.444)
+
+# Getting started
 
 1. Create a virtual environment (optional, recommended):
 
