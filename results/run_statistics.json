@@ -136,6 +136,40 @@
         "skewness": "class_imbalance_skewness.png",
         "model": "model.pkl"
       }
+    },
+    "250": {
+      "stats": {
+        "used_passages": 250,
+        "total_sentences": 1248,
+        "answer_sentences": 827,
+        "answer_ratio": 0.6626602564102564,
+        "avg_sentence_length": 28.662660256410255,
+        "avg_paragraph_length": 4.992
+      },
+      "run_folder": "results/run_250_passages",
+      "passages_used": 250,
+      "total_sentences": 1236,
+      "answer_sentences": 823,
+      "accuracy": 0.6330645161290323,
+      "f1_answer": 0.7092651757188498,
+      "top_features": [
+        "bert_surprisal_std",
+        "bert_surprisal_var",
+        "sentence_position",
+        "gpt2_surprisal_var",
+        "gpt2_surprisal_sum",
+        "sentence_length_words",
+        "noun_ratio",
+        "gpt2_surprisal_mean",
+        "gpt2_surprisal_std",
+        "sentence_position_norm"
+      ],
+      "files": {
+        "raw": "sentences_raw.csv",
+        "features": "sentences_with_features.csv",
+        "skewness": "class_imbalance_skewness.png",
+        "model": "model.pkl"
+      }
     }
   }
 }
