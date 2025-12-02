@@ -17,8 +17,9 @@ Folder structure
 - `results/` — Output directory with `run_<N>_passages` subfolders (contains raw sentences, features, plots, model files, etc.).
 - `report.pdf` — Project report.
 - `README.md` — This file.
-- `requirements.txt` — List of dependencies (optional).
 - `presentation_slides.pdf` — Slides for project presentation.
+- `requirements.txt` — List of dependencies (optional).
+
 
 ## Final Results – Performance Across Training Data Size
 
