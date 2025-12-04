@@ -1,0 +1,27 @@
+{
+  "full_model": {
+    "accuracy": 0.6926770708283313,
+    "f1": 0.7377049180327869,
+    "precision": 0.7860262008733624,
+    "recall": 0.694980694980695,
+    "features": 26
+  },
+  "ablations": {
+    "Top-10 Features": {
+      "features": 10,
+      "accuracy": 0.6740696278511404,
+      "precision_ans": 0.7647690655209453,
+      "recall_ans": 0.6872586872586872,
+      "f1_ans": 0.7239450940518556,
+      "macro_f1": 0.6630714481248289
+    },
+    "No Surprisal (Linguistic Only)": {
+      "features": 14,
+      "accuracy": 0.6920768307322929,
+      "precision_ans": 0.7755532139093783,
+      "recall_ans": 0.7104247104247104,
+      "f1_ans": 0.7415617128463476,
+      "macro_f1": 0.6803576938396549
+    }
+  }
+}

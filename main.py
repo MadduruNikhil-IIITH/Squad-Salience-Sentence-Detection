@@ -107,6 +107,8 @@ all_runs["runs"][run_key] = {
     "answer_sentences": int(df["label"].sum()),
     "accuracy": results["accuracy"],
     "f1_answer": results["f1"],
+    "precision": results["precision"],
+    "recall": results["recall"],
     "top_features": results["top_features"],
     "files": {
         "raw": "sentences_raw.csv",

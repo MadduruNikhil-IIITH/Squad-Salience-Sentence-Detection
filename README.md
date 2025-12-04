@@ -23,9 +23,9 @@ Folder structure
 
 ## Final Results – Performance Across Training Data Size
 
-| Passages Sampled | Total Sentences | Answer Ratio | Accuracy | F1 (Answer Class) |
+| Passages Sampled | Total Sentences | Answer Ratio | Accuracy | F1     |
 |------------------|-----------------|--------------|----------|-------------------|
-| 100              | 577             | 73.5%        | **70.69%**   | **0.7927** (best) |
+| 100              | 577             | 73.5%        | **70.69%**   | **0.7927**  |
 | 250              | 1,236           | 66.6%        | 63.31%   | 0.7093            |
 | 500              | 2,277           | 68.3%        | 66.01%   | 0.7404            |
 | 1,000            | 4,485           | 63.8%        | 69.12%   | 0.7480            |
@@ -33,6 +33,7 @@ Folder structure
 
 **Best model**: 2,000 passages → **69.27% accuracy**, **0.7377 F1** on the Answer class  
 Ablation with only top-10 features: **68.29% accuracy / 0.7360 F1** → negligible drop!
+No Suprisal features: **69.21% accuracy / 0.7416 F1 ** → surprisal features help, but linguistic features are strong!
 
 ## Feature List (26 Total)
 
