@@ -1,4 +1,4 @@
-# CL2 Project
+# Squad Salience Sentence Detection Project
 
 This repository contains code to analyze passages from the SQuAD dataset and build sentence-level features (linguistic + surprisal) to classify whether a sentence contains the answer.
 
