@@ -1,0 +1,22 @@
+# Core dependencies (validated from conda env: squad-salience)
+numpy==2.3.3
+pandas==2.3.3
+scikit-learn==1.7.2
+nltk==3.9.2
+matplotlib==3.10.7
+seaborn==0.13.2
+joblib==1.5.2
+tqdm==4.67.1
+torch==2.9.1
+torchvision==0.24.1
+torchaudio==2.9.1
+transformers==4.57.3
+accelerate==1.13.0
+
+# Evaluation and QG pipeline dependencies
+bert-score==0.3.13
+datasets==4.8.4
+evaluate==0.4.6
+
+# Quantized loading support used by LLM scripts
+bitsandbytes==0.49.2
