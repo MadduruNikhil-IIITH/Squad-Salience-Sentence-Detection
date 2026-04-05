@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "source_output": "results\\qg\\run_750_passages_current\\qg_pipeline_train_after2000.json",
+    "num_examples_processed": 750,
+    "num_generation_errors": 0,
+    "created_utc": "2026-04-04T09:19:40.864525Z"
+  },
+  "errors": []
+}

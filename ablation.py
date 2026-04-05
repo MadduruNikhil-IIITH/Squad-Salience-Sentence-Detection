@@ -1,11 +1,20 @@
 import json
 import os
+import re
+from pathlib import Path
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, classification_report
+
+
+def _extract_run_key(run_folder: str) -> str:
+    match = re.search(r"run_(\d+)_passages", Path(run_folder).as_posix())
+    if not match:
+        raise ValueError(f"Could not extract run key from path: {run_folder}")
+    return match.group(1)
 
 def run_ablation(run_folder: str = "results/run_2000_passages"):
     print(f"\n{'='*70}")
@@ -31,7 +40,7 @@ def run_ablation(run_folder: str = "results/run_2000_passages"):
     with open(stats_file, "r") as f:
         stats = json.load(f)
 
-    key = run_folder.split("_")[1]  # e.g., "2000"
+    key = _extract_run_key(run_folder)
     full_result = stats["runs"][key]
     full_acc = full_result["accuracy"]
     full_f1 = full_result["f1_answer"]

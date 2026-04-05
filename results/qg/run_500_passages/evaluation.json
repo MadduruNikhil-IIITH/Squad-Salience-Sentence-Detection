@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "pipeline_json": "results\\qg\\run_500_passages\\qg_pipeline_train_after2000_500_run2000.json",
+    "source_path": "data\\train.json",
+    "qa_model": "deepset/roberta-base-squad2",
+    "qa_batch_size": 16,
+    "bertscore_model": "roberta-base",
+    "evaluated_examples": 500,
+    "generation_error_count": 0,
+    "generation_error_log": "results\\qg\\run_500_passages\\qa_generation_errors.json",
+    "question_issue_count": 1518,
+    "question_issue_log": "results\\qg\\run_500_passages\\qa_generation_issues.json",
+    "efficiency_notes": [
+      "QA model is loaded once and reused.",
+      "QA consistency is computed in batches.",
+      "BERTScore is computed in one pass per method.",
+      "Gold lookup map is pre-built for O(1) QA-id access."
+    ]
+  },
+  "metrics": {
+    "salience": {
+      "count": 1000,
+      "rouge_l": 0.349,
+      "bertscore_f1": 0.9053,
+      "qa_em": 0.516,
+      "qa_consistency_f1": 0.7715,
+      "answer_recovery_f1": 0.3944
+    },
+    "baseline": {
+      "count": 1000,
+      "rouge_l": 0.3523,
+      "bertscore_f1": 0.9062,
+      "qa_em": 0.623,
+      "qa_consistency_f1": 0.7851,
+      "answer_recovery_f1": 0.4084
+    }
+  }
+}

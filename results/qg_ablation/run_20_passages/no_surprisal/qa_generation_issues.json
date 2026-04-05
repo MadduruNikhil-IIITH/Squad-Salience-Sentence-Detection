@@ -1,0 +1,3311 @@
+{
+  "meta": {
+    "pipeline_json": "results\\qg_ablation\\run_20_passages\\no_surprisal\\qg_pipeline.json",
+    "pipeline_metadata": {
+      "source": "dev",
+      "source_path": "results\\qg_ablation\\run_20_passages\\_ablation_subset_seed2026.json",
+      "skip_first_passages": 0,
+      "num_examples_requested": 20,
+      "num_examples_processed": 20,
+      "num_errors": 0,
+      "batch_size": 4,
+      "threshold": 0.55,
+      "top_k": 3,
+      "num_questions": 2,
+      "qg_model": "Qwen/Qwen2.5-7B-Instruct",
+      "linguistic_only": true,
+      "gpu_cache_every": 8,
+      "clear_model_cache_every": 0,
+      "started_utc": "2026-04-04T02:41:54.132011Z",
+      "finished_utc": "2026-04-04T02:44:54.470229Z",
+      "efficiency_notes": [
+        "Single SalienceInferencer instance reused across all batches.",
+        "Batched salience inference via infer_many to reduce overhead.",
+        "Question generation is sequential to avoid loading multiple LLMs at once.",
+        "Periodic torch.cuda.empty_cache and gc.collect to limit VRAM growth.",
+        "Optional full model cache clear available for long runs."
+      ]
+    },
+    "evaluated_examples": 20,
+    "issue_count": 72,
+    "reason_thresholds": {
+      "rouge_l": 0.35,
+      "qa_consistency_f1": 0.55,
+      "answer_recovery_f1": 0.45
+    }
+  },
+  "issues": [
+    {
+      "example_index": 12,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dede143277331400b4d77c",
+        "56dede143277331400b4d77d",
+        "5acd10f207355d001abf3308",
+        "5acd10f207355d001abf3309",
+        "5acd10f207355d001abf330a",
+        "5acd10f207355d001abf330b",
+        "5acd10f207355d001abf330c"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What period were Thales and Anaxagoras from?",
+      "gold_question": "What kinf of explanation does De Rerum Natura provide for phenomena?",
+      "rouge_l": 0.1111,
+      "generated_answer": "Ancient Greek",
+      "target_model_question": "What period were Thales and Anaxagoras from?",
+      "target_model_answer": "Ancient Greek",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who wrote De Rerum Natura?",
+          "answer": "Lucretius"
+        },
+        {
+          "question": "What period were Thales and Anaxagoras from?",
+          "answer": "Ancient Greek"
+        }
+      ],
+      "salient_sentences": [
+        "The Latin poem De Rerum Natura by Lucretius (ca.",
+        "Ancient Greek philosophers like Thales, Anaxagoras (ca."
+      ],
+      "qa_prediction": "500 BC \u2013 428 BC",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 3,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df114cc65bf219000b3f1d",
+        "5ad56e595b96ef001a10ae96",
+        "5ad56e595b96ef001a10ae97",
+        "5ad56e595b96ef001a10ae98",
+        "5ad56e595b96ef001a10ae99"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Why did the US Department of State start to develop alternatives?",
+      "gold_question": "France had no fear of what country?",
+      "rouge_l": 0.1111,
+      "generated_answer": "to obtain a German rearmament",
+      "target_model_question": "Why did the US Department of State start to develop alternatives?",
+      "target_model_answer": "to obtain a German rearmament",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did the French Parliament reject on 30 August 1954?",
+          "answer": "the EDC"
+        },
+        {
+          "question": "Why did the US Department of State start to develop alternatives?",
+          "answer": "to obtain a German rearmament"
+        }
+      ],
+      "salient_sentences": [
+        "The US Department of State started to elaborate alternatives: Germany would be invited to join NATO or, in the case of French obstructionism, strategies to circumvent a French veto would be implemented in order to obtain a German rearmament outside NATO.",
+        "On 30 August 1954 French Parliament rejected the EDC, thus ensuring its failure and blocking a major objective of US policy towards Europe: to associate Germany militarily with the West.",
+        "Memories of the Nazi occupation were still strong, and the rearmament of Germany was feared by France too."
+      ],
+      "qa_prediction": "Germany would be invited to join NATO",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.1818,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 14,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0713277331400b4d7a1",
+        "56dee0713277331400b4d7a2",
+        "56dee0713277331400b4d7a3",
+        "56dee0713277331400b4d7a4",
+        "56dee0713277331400b4d7a5",
+        "5acd132607355d001abf3372",
+        "5acd132607355d001abf3373",
+        "5acd132607355d001abf3374",
+        "5acd132607355d001abf3375",
+        "5acd132607355d001abf3376"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What did John 'Walking' Stewart believe about matter?",
+      "gold_question": "Who did not see matter as endowed with moral dimension?",
+      "rouge_l": 0.1111,
+      "generated_answer": "moral dimension",
+      "target_model_question": "What did John 'Walking' Stewart believe about matter?",
+      "target_model_answer": "moral dimension",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who opposed Ren\u00e9 Descartes?",
+          "answer": "Pierre Gassendi"
+        },
+        {
+          "question": "What did John 'Walking' Stewart believe about matter?",
+          "answer": "moral dimension"
+        }
+      ],
+      "salient_sentences": [
+        "There followed the materialist and atheist abb\u00e9 Jean Meslier (1664-1729), Julien Offray de La Mettrie, the German-French Paul-Henri Thiry Baron d'Holbach (1723-1789), the Encyclopedist Denis Diderot (1713-1784), and other French Enlightenment thinkers; as well as (in England) John \"Walking\" Stewart (1747-1822), whose insistence in seeing matter as endowed with a moral dimension had a major impact on the philosophical poetry of William Wordsworth (1770-1850).",
+        "The French cleric Pierre Gassendi (1592-1665) represented the materialist tradition in opposition to the attempts of Ren\u00e9 Descartes (1596-1650) to provide the natural sciences with dualist foundations."
+      ],
+      "qa_prediction": "endowed with a moral dimension",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.6667,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 3,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df114cc65bf219000b3f1d",
+        "5ad56e595b96ef001a10ae96",
+        "5ad56e595b96ef001a10ae97",
+        "5ad56e595b96ef001a10ae98",
+        "5ad56e595b96ef001a10ae99"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What was the US objective regarding Germany's rearmament?",
+      "gold_question": "Which parliament rejected the EDC on 30 April 1954?",
+      "rouge_l": 0.1176,
+      "generated_answer": "to associate Germany militarily with the West",
+      "target_model_question": "What was the US objective regarding Germany's rearmament?",
+      "target_model_answer": "to associate Germany militarily with the West",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did the French Parliament do on 30 August 1954?",
+          "answer": "rejected the EDC"
+        },
+        {
+          "question": "What was the US objective regarding Germany's rearmament?",
+          "answer": "to associate Germany militarily with the West"
+        }
+      ],
+      "salient_sentences": [
+        "The US Department of State started to elaborate alternatives: Germany would be invited to join NATO or, in the case of French obstructionism, strategies to circumvent a French veto would be implemented in order to obtain a German rearmament outside NATO.",
+        "On 30 August 1954 French Parliament rejected the EDC, thus ensuring its failure and blocking a major objective of US policy towards Europe: to associate Germany militarily with the West.",
+        "Memories of the Nazi occupation were still strong, and the rearmament of Germany was feared by France too."
+      ],
+      "qa_prediction": "to associate Germany militarily with the West",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 12,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dede143277331400b4d77c",
+        "56dede143277331400b4d77d",
+        "5acd10f207355d001abf3308",
+        "5acd10f207355d001abf3309",
+        "5acd10f207355d001abf330a",
+        "5acd10f207355d001abf330b",
+        "5acd10f207355d001abf330c"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What do materialists believe exists?",
+      "gold_question": "What kinf of explanation does De Rerum Natura provide for phenomena?",
+      "rouge_l": 0.125,
+      "generated_answer": "matter and void",
+      "target_model_question": "What do materialists believe exists?",
+      "target_model_answer": "matter and void",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What reflects the mechanistic philosophy of Democritus and Epicurus?",
+          "answer": "De Rerum Natura"
+        },
+        {
+          "question": "What do materialists believe exists?",
+          "answer": "matter and void"
+        }
+      ],
+      "salient_sentences": [
+        "The Latin poem De Rerum Natura by Lucretius (ca.",
+        "Ancient Greek philosophers like Thales, Anaxagoras (ca."
+      ],
+      "qa_prediction": "matter and void",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 2,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df047bc65bf219000b3edf",
+        "5ad56c6d5b96ef001a10ae74",
+        "5ad56c6d5b96ef001a10ae75",
+        "5ad56c6d5b96ef001a10ae76",
+        "5ad56c6d5b96ef001a10ae77"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What was the USA's participation conditional on?",
+      "gold_question": "The European Treaty was accepted by which group?",
+      "rouge_l": 0.1333,
+      "generated_answer": "not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact",
+      "target_model_question": "What was the USA's participation conditional on?",
+      "target_model_answer": "not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Why did the Soviets decide to make a new proposal?",
+          "answer": "to accept the participation of the USA"
+        },
+        {
+          "question": "What was the USA's participation conditional on?",
+          "answer": "not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact"
+        }
+      ],
+      "salient_sentences": [
+        "And considering that another argument deployed against the Soviet proposal was that it was perceived by western powers as \"directed against the North Atlantic Pact and its liquidation\", the Soviets decided to declare their \"readiness to examine jointly with other interested parties the question of the participation of the USSR in the North Atlantic bloc\", specifying that \"the admittance of the USA into the General European Agreement should not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact\".",
+        "One month later, the proposed European Treaty was rejected not only by supporters of the EDC but also by western opponents of the European Defense Community (like French Gaullist leader Palewski) who perceived it as \"unacceptable in its present form because it excludes the USA from participation in the collective security system in Europe\".",
+        "The Soviets then decided to make a new proposal to the governments of the USA, UK and France stating to accept the participation of the USA in the proposed General European Agreement."
+      ],
+      "qa_prediction": "the three western powers agreeing to the USSR joining the North Atlantic Pact",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.8333,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 14,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0713277331400b4d7a1",
+        "56dee0713277331400b4d7a2",
+        "56dee0713277331400b4d7a3",
+        "56dee0713277331400b4d7a4",
+        "56dee0713277331400b4d7a5",
+        "5acd132607355d001abf3372",
+        "5acd132607355d001abf3373",
+        "5acd132607355d001abf3374",
+        "5acd132607355d001abf3375",
+        "5acd132607355d001abf3376"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What tradition did Gassendi represent?",
+      "gold_question": "Pierre Gassendi lived from what year to what year?",
+      "rouge_l": 0.1429,
+      "generated_answer": "materialist",
+      "target_model_question": "What tradition did Gassendi represent?",
+      "target_model_answer": "materialist",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who opposed Descartes?",
+          "answer": "Pierre Gassendi"
+        },
+        {
+          "question": "What tradition did Gassendi represent?",
+          "answer": "materialist"
+        }
+      ],
+      "salient_sentences": [
+        "There followed the materialist and atheist abb\u00e9 Jean Meslier (1664-1729), Julien Offray de La Mettrie, the German-French Paul-Henri Thiry Baron d'Holbach (1723-1789), the Encyclopedist Denis Diderot (1713-1784), and other French Enlightenment thinkers; as well as (in England) John \"Walking\" Stewart (1747-1822), whose insistence in seeing matter as endowed with a moral dimension had a major impact on the philosophical poetry of William Wordsworth (1770-1850).",
+        "The French cleric Pierre Gassendi (1592-1665) represented the materialist tradition in opposition to the attempts of Ren\u00e9 Descartes (1596-1650) to provide the natural sciences with dualist foundations."
+      ],
+      "qa_prediction": "materialist",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 0,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de8542cffd8e1900b4b9d8",
+        "56de8542cffd8e1900b4b9d9",
+        "56de8542cffd8e1900b4b9da",
+        "5ad567e55b96ef001a10ae08",
+        "5ad567e55b96ef001a10ae09",
+        "5ad567e55b96ef001a10ae0a",
+        "5ad567e55b96ef001a10ae0b"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What doctrine supported Soviet intervention?",
+      "gold_question": "The Soviet Union feared invasion from which potential enemy?",
+      "rouge_l": 0.1429,
+      "generated_answer": "Brezhnev Doctrine",
+      "target_model_question": "What doctrine supported Soviet intervention?",
+      "target_model_answer": "Brezhnev Doctrine",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the ideological reason for the Warsaw Pact's formation?",
+          "answer": "define socialism and communism"
+        },
+        {
+          "question": "What doctrine supported Soviet intervention?",
+          "answer": "Brezhnev Doctrine"
+        }
+      ],
+      "salient_sentences": [
+        "The strategy behind the formation of the Warsaw Pact was driven by the desire of the Soviet Union to dominate Central and Eastern Europe."
+      ],
+      "qa_prediction": "Brezhnev Doctrine",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.6667,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 2,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df047bc65bf219000b3edf",
+        "5ad56c6d5b96ef001a10ae74",
+        "5ad56c6d5b96ef001a10ae75",
+        "5ad56c6d5b96ef001a10ae76",
+        "5ad56c6d5b96ef001a10ae77"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Why did the Soviets decide to make a new proposal?",
+      "gold_question": "The omission of which nation from involvement in the proposed security system led to its NATO opposition?",
+      "rouge_l": 0.1481,
+      "generated_answer": "to accept the participation of the USA",
+      "target_model_question": "Why did the Soviets decide to make a new proposal?",
+      "target_model_answer": "to accept the participation of the USA",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Why did the Soviets decide to make a new proposal?",
+          "answer": "to accept the participation of the USA"
+        },
+        {
+          "question": "What was the USA's participation conditional on?",
+          "answer": "not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact"
+        }
+      ],
+      "salient_sentences": [
+        "And considering that another argument deployed against the Soviet proposal was that it was perceived by western powers as \"directed against the North Atlantic Pact and its liquidation\", the Soviets decided to declare their \"readiness to examine jointly with other interested parties the question of the participation of the USSR in the North Atlantic bloc\", specifying that \"the admittance of the USA into the General European Agreement should not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact\".",
+        "One month later, the proposed European Treaty was rejected not only by supporters of the EDC but also by western opponents of the European Defense Community (like French Gaullist leader Palewski) who perceived it as \"unacceptable in its present form because it excludes the USA from participation in the collective security system in Europe\".",
+        "The Soviets then decided to make a new proposal to the governments of the USA, UK and France stating to accept the participation of the USA in the proposed General European Agreement."
+      ],
+      "qa_prediction": "to accept the participation of the USA in the proposed General European Agreement",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.6667,
+      "answer_recovery_f1": 0.1818,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 15,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0f43277331400b4d7ab",
+        "56dee0f43277331400b4d7ac",
+        "5acd139a07355d001abf3386",
+        "5acd139a07355d001abf3387",
+        "5acd139a07355d001abf3388",
+        "5acd139a07355d001abf3389",
+        "5acd139a07355d001abf338a"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What is Arthur Schopenhauer's view on materialism?",
+      "gold_question": "What does the brain not decide? ",
+      "rouge_l": 0.1538,
+      "generated_answer": "philosophy of the subject who forgets to take account of himself",
+      "target_model_question": "What is Arthur Schopenhauer's view on materialism?",
+      "target_model_answer": "philosophy of the subject who forgets to take account of himself",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What is Arthur Schopenhauer's view on materialism?",
+          "answer": "philosophy of the subject who forgets to take account of himself"
+        },
+        {
+          "question": "How does the brain affect perception of material objects?",
+          "answer": "determiner of how material objects will be experienced or perceived"
+        }
+      ],
+      "salient_sentences": [
+        "Arthur Schopenhauer (1788-1860) wrote that \"...materialism is the philosophy of the subject who forgets to take account of himself\"."
+      ],
+      "qa_prediction": "the philosophy of the subject who forgets to take account of himself\".",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 19,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56deea683277331400b4d80a",
+        "56deea683277331400b4d80b",
+        "5acd192c07355d001abf34b6",
+        "5acd192c07355d001abf34b7",
+        "5acd192c07355d001abf34b8",
+        "5acd192c07355d001abf34b9",
+        "5acd192c07355d001abf34ba"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who released The Matter Myth in 1991?",
+      "gold_question": "Who believes that physics defined materialism?",
+      "rouge_l": 0.1538,
+      "generated_answer": "Gribbin and Davies",
+      "target_model_question": "Who released The Matter Myth in 1991?",
+      "target_model_answer": "Gribbin and Davies",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who released The Matter Myth in 1991?",
+          "answer": "Gribbin and Davies"
+        },
+        {
+          "question": "What is the title of the first chapter in The Matter Myth?",
+          "answer": "The Death of Materialism"
+        }
+      ],
+      "salient_sentences": [
+        "Some modern day physicists and science writers\u2014such as Paul Davies and John Gribbin\u2014have argued that materialism has been disproven by certain scientific findings in physics, such as quantum mechanics and chaos theory.",
+        "In 1991, Gribbin and Davies released their book The Matter Myth, the first chapter of which, \"The Death of Materialism\", contained the following passage:"
+      ],
+      "qa_prediction": "Gribbin and Davies",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.25,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 9,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de936b4396321400ee2a30",
+        "56de936b4396321400ee2a31",
+        "5acd0a0107355d001abf3200",
+        "5acd0a0107355d001abf3201",
+        "5acd0a0107355d001abf3202",
+        "5acd0a0107355d001abf3203"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What does physicalism include beyond ordinary matter?",
+      "gold_question": "What has devolved from materialism? ",
+      "rouge_l": 0.1667,
+      "generated_answer": "spacetime, physical energies and forces, dark matter",
+      "target_model_question": "What does physicalism include beyond ordinary matter?",
+      "target_model_answer": "spacetime, physical energies and forces, dark matter",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What is materialism related to?",
+          "answer": "physicalism"
+        },
+        {
+          "question": "What does physicalism include beyond ordinary matter?",
+          "answer": "spacetime, physical energies and forces, dark matter"
+        }
+      ],
+      "salient_sentences": [
+        "Philosophical physicalism has evolved from materialism with the discoveries of the physical sciences to incorporate more sophisticated notions of physicality than mere ordinary matter, such as: spacetime, physical energies and forces, dark matter, and so on."
+      ],
+      "qa_prediction": "spacetime, physical energies and forces, dark matter",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 1.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 2,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df047bc65bf219000b3edf",
+        "5ad56c6d5b96ef001a10ae74",
+        "5ad56c6d5b96ef001a10ae75",
+        "5ad56c6d5b96ef001a10ae76",
+        "5ad56c6d5b96ef001a10ae77"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Why did the Soviets offer to join the North Atlantic bloc?",
+      "gold_question": "One of the leaders who supported the European Defense Community was whom?",
+      "rouge_l": 0.1739,
+      "generated_answer": "to examine jointly with other interested parties",
+      "target_model_question": "Why did the Soviets offer to join the North Atlantic bloc?",
+      "target_model_answer": "to examine jointly with other interested parties",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did the Soviets propose to include the USA in?",
+          "answer": "General European Agreement"
+        },
+        {
+          "question": "Why did the Soviets offer to join the North Atlantic bloc?",
+          "answer": "to examine jointly with other interested parties"
+        }
+      ],
+      "salient_sentences": [
+        "And considering that another argument deployed against the Soviet proposal was that it was perceived by western powers as \"directed against the North Atlantic Pact and its liquidation\", the Soviets decided to declare their \"readiness to examine jointly with other interested parties the question of the participation of the USSR in the North Atlantic bloc\", specifying that \"the admittance of the USA into the General European Agreement should not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact\".",
+        "One month later, the proposed European Treaty was rejected not only by supporters of the EDC but also by western opponents of the European Defense Community (like French Gaullist leader Palewski) who perceived it as \"unacceptable in its present form because it excludes the USA from participation in the collective security system in Europe\".",
+        "The Soviets then decided to make a new proposal to the governments of the USA, UK and France stating to accept the participation of the USA in the proposed General European Agreement."
+      ],
+      "qa_prediction": "directed against the North Atlantic Pact and its liquidation",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 0,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de8542cffd8e1900b4b9d8",
+        "56de8542cffd8e1900b4b9d9",
+        "56de8542cffd8e1900b4b9da",
+        "5ad567e55b96ef001a10ae08",
+        "5ad567e55b96ef001a10ae09",
+        "5ad567e55b96ef001a10ae0a",
+        "5ad567e55b96ef001a10ae0b"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What was the ideological reason for the Warsaw Pact's formation?",
+      "gold_question": "Which ideologies did the Soviet Union aspire to lead around the globe?",
+      "rouge_l": 0.1818,
+      "generated_answer": "define socialism and communism",
+      "target_model_question": "What was the ideological reason for the Warsaw Pact's formation?",
+      "target_model_answer": "define socialism and communism",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the ideological reason for the Warsaw Pact's formation?",
+          "answer": "define socialism and communism"
+        },
+        {
+          "question": "What doctrine supported Soviet intervention?",
+          "answer": "Brezhnev Doctrine"
+        }
+      ],
+      "salient_sentences": [
+        "The strategy behind the formation of the Warsaw Pact was driven by the desire of the Soviet Union to dominate Central and Eastern Europe."
+      ],
+      "qa_prediction": "the Soviet Union arrogated the right to define socialism and communism",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.6154,
+      "answer_recovery_f1": 0.5,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 0,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de8542cffd8e1900b4b9d8",
+        "56de8542cffd8e1900b4b9d9",
+        "56de8542cffd8e1900b4b9da",
+        "5ad567e55b96ef001a10ae08",
+        "5ad567e55b96ef001a10ae09",
+        "5ad567e55b96ef001a10ae0a",
+        "5ad567e55b96ef001a10ae0b"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What was the main goal of the Warsaw Pact's formation?",
+      "gold_question": "Which ideologies did the Soviet Union aspire to lead around the globe?",
+      "rouge_l": 0.1818,
+      "generated_answer": "dominate Central and Eastern Europe",
+      "target_model_question": "What was the main goal of the Warsaw Pact's formation?",
+      "target_model_answer": "dominate Central and Eastern Europe",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the main goal of the Warsaw Pact's formation?",
+          "answer": "dominate Central and Eastern Europe"
+        },
+        {
+          "question": "Why did the Soviet Union want to dominate the region?",
+          "answer": "desire to dominate Central and Eastern Europe"
+        }
+      ],
+      "salient_sentences": [
+        "The strategy behind the formation of the Warsaw Pact was driven by the desire of the Soviet Union to dominate Central and Eastern Europe."
+      ],
+      "qa_prediction": "to dominate Central and Eastern Europe",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.9091,
+      "answer_recovery_f1": 0.25,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 2,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df047bc65bf219000b3edf",
+        "5ad56c6d5b96ef001a10ae74",
+        "5ad56c6d5b96ef001a10ae75",
+        "5ad56c6d5b96ef001a10ae76",
+        "5ad56c6d5b96ef001a10ae77"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What did the Soviets propose to include the USA in?",
+      "gold_question": "One of the leaders who supported the European Defense Community was whom?",
+      "rouge_l": 0.1818,
+      "generated_answer": "General European Agreement",
+      "target_model_question": "What did the Soviets propose to include the USA in?",
+      "target_model_answer": "General European Agreement",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did the Soviets propose to include the USA in?",
+          "answer": "General European Agreement"
+        },
+        {
+          "question": "Why did the Soviets offer to join the North Atlantic bloc?",
+          "answer": "to examine jointly with other interested parties"
+        }
+      ],
+      "salient_sentences": [
+        "And considering that another argument deployed against the Soviet proposal was that it was perceived by western powers as \"directed against the North Atlantic Pact and its liquidation\", the Soviets decided to declare their \"readiness to examine jointly with other interested parties the question of the participation of the USSR in the North Atlantic bloc\", specifying that \"the admittance of the USA into the General European Agreement should not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact\".",
+        "One month later, the proposed European Treaty was rejected not only by supporters of the EDC but also by western opponents of the European Defense Community (like French Gaullist leader Palewski) who perceived it as \"unacceptable in its present form because it excludes the USA from participation in the collective security system in Europe\".",
+        "The Soviets then decided to make a new proposal to the governments of the USA, UK and France stating to accept the participation of the USA in the proposed General European Agreement."
+      ],
+      "qa_prediction": "General European Agreement",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 12,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dede143277331400b4d77c",
+        "56dede143277331400b4d77d",
+        "5acd10f207355d001abf3308",
+        "5acd10f207355d001abf3309",
+        "5acd10f207355d001abf330a",
+        "5acd10f207355d001abf330b",
+        "5acd10f207355d001abf330c"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What reflects the mechanistic philosophy of Democritus and Epicurus?",
+      "gold_question": "What kinf of explanation does De Rerum Natura provide for phenomena?",
+      "rouge_l": 0.2,
+      "generated_answer": "De Rerum Natura",
+      "target_model_question": "What reflects the mechanistic philosophy of Democritus and Epicurus?",
+      "target_model_answer": "De Rerum Natura",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What reflects the mechanistic philosophy of Democritus and Epicurus?",
+          "answer": "De Rerum Natura"
+        },
+        {
+          "question": "What do materialists believe exists?",
+          "answer": "matter and void"
+        }
+      ],
+      "salient_sentences": [
+        "The Latin poem De Rerum Natura by Lucretius (ca.",
+        "Ancient Greek philosophers like Thales, Anaxagoras (ca."
+      ],
+      "qa_prediction": "The Latin poem De Rerum Natura",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.75,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 17,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee346c65bf219000b3ddf",
+        "5acd14cb07355d001abf33c0",
+        "5acd14cb07355d001abf33c1",
+        "5acd14cb07355d001abf33c2",
+        "5acd14cb07355d001abf33c3",
+        "5acd14cb07355d001abf33c4"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who are some current and recent philosophers mentioned?",
+      "gold_question": "What are 3 theories that ancient day philosophers try to harmonize?",
+      "rouge_l": 0.2105,
+      "generated_answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor",
+      "target_model_question": "Who are some current and recent philosophers mentioned?",
+      "target_model_answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who are some current and recent philosophers mentioned?",
+          "answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor"
+        },
+        {
+          "question": "What framework do these philosophers operate within?",
+          "answer": "broadly physicalist or materialist"
+        }
+      ],
+      "salient_sentences": [
+        "Many current and recent philosophers\u2014e.g., Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor\u2014operate within a broadly physicalist or materialist framework, producing rival accounts of how best to accommodate mind, including functionalism, anomalous monism, identity theory, and so on."
+      ],
+      "qa_prediction": "Daniel Dennett",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.3077,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 19,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56deea683277331400b4d80a",
+        "56deea683277331400b4d80b",
+        "5acd192c07355d001abf34b6",
+        "5acd192c07355d001abf34b7",
+        "5acd192c07355d001abf34b8",
+        "5acd192c07355d001abf34b9",
+        "5acd192c07355d001abf34ba"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What have some modern day physicists argued about materialism?",
+      "gold_question": "What are some of the findings that support their argument?",
+      "rouge_l": 0.2105,
+      "generated_answer": "disproven by certain scientific findings",
+      "target_model_question": "What have some modern day physicists argued about materialism?",
+      "target_model_answer": "disproven by certain scientific findings",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What have some modern day physicists argued about materialism?",
+          "answer": "disproven by certain scientific findings"
+        },
+        {
+          "question": "Which book was published in 1991 by Gribbin and Davies?",
+          "answer": "The Matter Myth"
+        }
+      ],
+      "salient_sentences": [
+        "Some modern day physicists and science writers\u2014such as Paul Davies and John Gribbin\u2014have argued that materialism has been disproven by certain scientific findings in physics, such as quantum mechanics and chaos theory.",
+        "In 1991, Gribbin and Davies released their book The Matter Myth, the first chapter of which, \"The Death of Materialism\", contained the following passage:"
+      ],
+      "qa_prediction": "disproven by certain scientific findings in physics",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.8333,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 10,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de94434396321400ee2a3b",
+        "5acd0a8407355d001abf3208",
+        "5acd0a8407355d001abf3209",
+        "5acd0a8407355d001abf320a",
+        "5acd0a8407355d001abf320b",
+        "5acd0a8407355d001abf320c"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "How is materialism different from dualism or pluralism?",
+      "gold_question": "Monist ontology is the same as dualism and what else? ",
+      "rouge_l": 0.2222,
+      "generated_answer": "it is not",
+      "target_model_question": "How is materialism different from dualism or pluralism?",
+      "target_model_answer": "it is not",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What class does materialism belong to?",
+          "answer": "monist ontology"
+        },
+        {
+          "question": "How is materialism different from dualism or pluralism?",
+          "answer": "it is not"
+        }
+      ],
+      "salient_sentences": [],
+      "qa_prediction": "ontological theories",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 8,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de92c1cffd8e1900b4b9fc",
+        "56de92c1cffd8e1900b4b9fd",
+        "5acd09a507355d001abf31fa",
+        "5acd09a507355d001abf31fb",
+        "5acd09a507355d001abf31fc"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What does materialism claim about phenomena?",
+      "gold_question": "What is materialism?",
+      "rouge_l": 0.2222,
+      "generated_answer": "all phenomena are identical with material interactions",
+      "target_model_question": "What does materialism claim about phenomena?",
+      "target_model_answer": "all phenomena are identical with material interactions",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What does materialism hold about matter?",
+          "answer": "matter is the fundamental substance in nature"
+        },
+        {
+          "question": "What does materialism claim about phenomena?",
+          "answer": "all phenomena are identical with material interactions"
+        }
+      ],
+      "salient_sentences": [
+        "Materialism is a form of philosophical monism which holds that matter is the fundamental substance in nature, and that all phenomena, including mental phenomena and consciousness, are identical with material interactions."
+      ],
+      "qa_prediction": "all phenomena, including mental phenomena and consciousness, are identical with material interactions",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.7368,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 1,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df03473277331400b4d8ab",
+        "56df03473277331400b4d8ac",
+        "5ad56b055b96ef001a10ae52",
+        "5ad56b055b96ef001a10ae53",
+        "5ad56b055b96ef001a10ae54",
+        "5ad56b055b96ef001a10ae55"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What were the conditions for German reunification proposed by Molotov?",
+      "gold_question": "When was reunification first proposed as an idea?",
+      "rouge_l": 0.2222,
+      "generated_answer": "under conditions of withdrawal of the four powers armies and German neutrality",
+      "target_model_question": "What were the conditions for German reunification proposed by Molotov?",
+      "target_model_answer": "under conditions of withdrawal of the four powers armies and German neutrality",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What were the conditions for German reunification proposed by Molotov?",
+          "answer": "under conditions of withdrawal of the four powers armies and German neutrality"
+        },
+        {
+          "question": "Who refused the Soviet proposals for German reunification?",
+          "answer": "Dulles (USA), Eden (UK) and Bidault (France)"
+        }
+      ],
+      "salient_sentences": [
+        "Proposals for the reunification of Germany were nothing new: earlier on 20 March 1952, talks about a German reunification, initiated by the socalled 'Stalin Note', ended after the United Kingdom, France, and the United States insisted that a unified Germany should not be neutral and should be free to join the European Defence Community and rearm.",
+        "Soviet foreign minister Molotov made proposals to have Germany reunified and elections for a pan-German government, under conditions of withdrawal of the four powers armies and German neutrality, but all were refused by the other foreign ministers, Dulles (USA), Eden (UK) and Bidault (France).",
+        "James Dunn (USA), who met in Paris with Eden, Adenauer and Robert Schuman (France), affirmed that \"the object should be to avoid discussion with the Russians and to press on the European Defense Community\"."
+      ],
+      "qa_prediction": "withdrawal of the four powers armies and German neutrality",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.8421,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 14,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0713277331400b4d7a1",
+        "56dee0713277331400b4d7a2",
+        "56dee0713277331400b4d7a3",
+        "56dee0713277331400b4d7a4",
+        "56dee0713277331400b4d7a5",
+        "5acd132607355d001abf3372",
+        "5acd132607355d001abf3373",
+        "5acd132607355d001abf3374",
+        "5acd132607355d001abf3375",
+        "5acd132607355d001abf3376"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who opposed Ren\u00e9 Descartes?",
+      "gold_question": "Who agreed with Pierre Gassendi?",
+      "rouge_l": 0.2222,
+      "generated_answer": "Pierre Gassendi",
+      "target_model_question": "Who opposed Ren\u00e9 Descartes?",
+      "target_model_answer": "Pierre Gassendi",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who opposed Ren\u00e9 Descartes?",
+          "answer": "Pierre Gassendi"
+        },
+        {
+          "question": "What did John 'Walking' Stewart believe about matter?",
+          "answer": "moral dimension"
+        }
+      ],
+      "salient_sentences": [
+        "There followed the materialist and atheist abb\u00e9 Jean Meslier (1664-1729), Julien Offray de La Mettrie, the German-French Paul-Henri Thiry Baron d'Holbach (1723-1789), the Encyclopedist Denis Diderot (1713-1784), and other French Enlightenment thinkers; as well as (in England) John \"Walking\" Stewart (1747-1822), whose insistence in seeing matter as endowed with a moral dimension had a major impact on the philosophical poetry of William Wordsworth (1770-1850).",
+        "The French cleric Pierre Gassendi (1592-1665) represented the materialist tradition in opposition to the attempts of Ren\u00e9 Descartes (1596-1650) to provide the natural sciences with dualist foundations."
+      ],
+      "qa_prediction": "Pierre Gassendi",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 8,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de92c1cffd8e1900b4b9fc",
+        "56de92c1cffd8e1900b4b9fd",
+        "5acd09a507355d001abf31fa",
+        "5acd09a507355d001abf31fb",
+        "5acd09a507355d001abf31fc"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What does materialism hold about matter?",
+      "gold_question": "What is materialism?",
+      "rouge_l": 0.2222,
+      "generated_answer": "matter is the fundamental substance in nature",
+      "target_model_question": "What does materialism hold about matter?",
+      "target_model_answer": "matter is the fundamental substance in nature",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What does materialism hold about matter?",
+          "answer": "matter is the fundamental substance in nature"
+        },
+        {
+          "question": "What does materialism claim about phenomena?",
+          "answer": "all phenomena are identical with material interactions"
+        }
+      ],
+      "salient_sentences": [
+        "Materialism is a form of philosophical monism which holds that matter is the fundamental substance in nature, and that all phenomena, including mental phenomena and consciousness, are identical with material interactions."
+      ],
+      "qa_prediction": "matter is the fundamental substance in nature",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.2857,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 8,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de92c1cffd8e1900b4b9fc",
+        "56de92c1cffd8e1900b4b9fd",
+        "5acd09a507355d001abf31fa",
+        "5acd09a507355d001abf31fb",
+        "5acd09a507355d001abf31fc"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What does materialism hold about matter?",
+      "gold_question": "What is materialism?",
+      "rouge_l": 0.2222,
+      "generated_answer": "matter is the fundamental substance in nature",
+      "target_model_question": "What does materialism hold about matter?",
+      "target_model_answer": "matter is the fundamental substance in nature",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What is materialism?",
+          "answer": "a form of philosophical monism"
+        },
+        {
+          "question": "What does materialism hold about matter?",
+          "answer": "matter is the fundamental substance in nature"
+        }
+      ],
+      "salient_sentences": [
+        "Materialism is a form of philosophical monism which holds that matter is the fundamental substance in nature, and that all phenomena, including mental phenomena and consciousness, are identical with material interactions."
+      ],
+      "qa_prediction": "matter is the fundamental substance in nature",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.2857,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 17,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee346c65bf219000b3ddf",
+        "5acd14cb07355d001abf33c0",
+        "5acd14cb07355d001abf33c1",
+        "5acd14cb07355d001abf33c2",
+        "5acd14cb07355d001abf33c3",
+        "5acd14cb07355d001abf33c4"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who are some recent philosophers mentioned?",
+      "gold_question": "What are 3 theories that ancient day philosophers try to harmonize?",
+      "rouge_l": 0.2353,
+      "generated_answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, Jerry Fodor",
+      "target_model_question": "Who are some recent philosophers mentioned?",
+      "target_model_answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, Jerry Fodor",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who are some recent philosophers mentioned?",
+          "answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, Jerry Fodor"
+        },
+        {
+          "question": "What framework do these philosophers operate within?",
+          "answer": "broadly physicalist or materialist"
+        }
+      ],
+      "salient_sentences": [
+        "Many current and recent philosophers\u2014e.g., Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor\u2014operate within a broadly physicalist or materialist framework, producing rival accounts of how best to accommodate mind, including functionalism, anomalous monism, identity theory, and so on."
+      ],
+      "qa_prediction": "Daniel Dennett",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.3333,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 11,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de9b07cffd8e1900b4ba2b",
+        "56de9b07cffd8e1900b4ba2c",
+        "56de9b07cffd8e1900b4ba2d",
+        "56de9b07cffd8e1900b4ba2e",
+        "5acd104707355d001abf32e0",
+        "5acd104707355d001abf32e1",
+        "5acd104707355d001abf32e2",
+        "5acd104707355d001abf32e3",
+        "5acd104707355d001abf32e4"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Who became one of the early proponents of atomism?",
+      "gold_question": "Between what years did the school advance atomism?",
+      "rouge_l": 0.2353,
+      "generated_answer": "Kanada",
+      "target_model_question": "Who became one of the early proponents of atomism?",
+      "target_model_answer": "Kanada",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did materialism develop in Ancient Indian philosophy?",
+          "answer": "around 600 BC"
+        },
+        {
+          "question": "Who became one of the early proponents of atomism?",
+          "answer": "Kanada"
+        }
+      ],
+      "salient_sentences": [
+        "In Ancient Indian philosophy, materialism developed around 600 BC with the works of Ajita Kesakambali, Payasi, Kanada, and the proponents of the C\u0101rv\u0101ka school of philosophy.",
+        "The Nyaya\u2013Vaisesika school (600 BC - 100 BC) developed one of the earliest forms of atomism, though their proofs of God and their positing that the consciousness was not material precludes labelling them as materialists."
+      ],
+      "qa_prediction": "Kanada",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.1667,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 11,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de9b07cffd8e1900b4ba2b",
+        "56de9b07cffd8e1900b4ba2c",
+        "56de9b07cffd8e1900b4ba2d",
+        "56de9b07cffd8e1900b4ba2e",
+        "5acd104707355d001abf32e0",
+        "5acd104707355d001abf32e1",
+        "5acd104707355d001abf32e2",
+        "5acd104707355d001abf32e3",
+        "5acd104707355d001abf32e4"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Who became one of the early proponents of atomism?",
+      "gold_question": "Between what years did the school advance atomism?",
+      "rouge_l": 0.2353,
+      "generated_answer": "Kanada",
+      "target_model_question": "Who became one of the early proponents of atomism?",
+      "target_model_answer": "Kanada",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did materialism develop in Ancient India?",
+          "answer": "around 600 BC"
+        },
+        {
+          "question": "Who became one of the early proponents of atomism?",
+          "answer": "Kanada"
+        }
+      ],
+      "salient_sentences": [
+        "In Ancient Indian philosophy, materialism developed around 600 BC with the works of Ajita Kesakambali, Payasi, Kanada, and the proponents of the C\u0101rv\u0101ka school of philosophy.",
+        "The Nyaya\u2013Vaisesika school (600 BC - 100 BC) developed one of the earliest forms of atomism, though their proofs of God and their positing that the consciousness was not material precludes labelling them as materialists."
+      ],
+      "qa_prediction": "Kanada",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.1667,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 16,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee1f3c65bf219000b3dbf",
+        "56dee1f3c65bf219000b3dc0",
+        "56dee1f3c65bf219000b3dc1",
+        "56dee1f3c65bf219000b3dc2",
+        "5acd143307355d001abf339a",
+        "5acd143307355d001abf339b",
+        "5acd143307355d001abf339c",
+        "5acd143307355d001abf339d",
+        "5acd143307355d001abf339e"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What did Feuerbach's book provide?",
+      "gold_question": "What German materialist did not signal a new turn in materialism?",
+      "rouge_l": 0.25,
+      "generated_answer": "humanist account of religion",
+      "target_model_question": "What did Feuerbach's book provide?",
+      "target_model_answer": "humanist account of religion",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did Feuerbach's book provide?",
+          "answer": "humanist account of religion"
+        },
+        {
+          "question": "Who was influenced by Feuerbach's materialism?",
+          "answer": "Karl Marx"
+        }
+      ],
+      "salient_sentences": [
+        "The German materialist and atheist anthropologist Ludwig Feuerbach would signal a new turn in materialism through his book, The Essence of Christianity (1841), which provided a humanist account of religion as the outward projection of man's inward nature."
+      ],
+      "qa_prediction": "a humanist account of religion as the outward projection of man's inward nature",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.5333,
+      "answer_recovery_f1": 0.7059,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well"
+      ]
+    },
+    {
+      "example_index": 1,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df03473277331400b4d8ab",
+        "56df03473277331400b4d8ac",
+        "5ad56b055b96ef001a10ae52",
+        "5ad56b055b96ef001a10ae53",
+        "5ad56b055b96ef001a10ae54",
+        "5ad56b055b96ef001a10ae55"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What was Adenauer's fear regarding German unification?",
+      "gold_question": "Who was the Soviet minister who proposed German reunification?",
+      "rouge_l": 0.25,
+      "generated_answer": "end of the CDU's dominance in the Bundestag",
+      "target_model_question": "What was Adenauer's fear regarding German unification?",
+      "target_model_answer": "end of the CDU's dominance in the Bundestag",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did the Berlin Conference take place?",
+          "answer": "January\u2013February 1954"
+        },
+        {
+          "question": "What was Adenauer's fear regarding German unification?",
+          "answer": "end of the CDU's dominance in the Bundestag"
+        }
+      ],
+      "salient_sentences": [
+        "Proposals for the reunification of Germany were nothing new: earlier on 20 March 1952, talks about a German reunification, initiated by the socalled 'Stalin Note', ended after the United Kingdom, France, and the United States insisted that a unified Germany should not be neutral and should be free to join the European Defence Community and rearm.",
+        "Soviet foreign minister Molotov made proposals to have Germany reunified and elections for a pan-German government, under conditions of withdrawal of the four powers armies and German neutrality, but all were refused by the other foreign ministers, Dulles (USA), Eden (UK) and Bidault (France).",
+        "James Dunn (USA), who met in Paris with Eden, Adenauer and Robert Schuman (France), affirmed that \"the object should be to avoid discussion with the Russians and to press on the European Defense Community\"."
+      ],
+      "qa_prediction": "the end of the CDU's dominance in the Bundestag",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 7,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df18663277331400b4d981",
+        "56df18663277331400b4d982",
+        "56df18663277331400b4d983",
+        "5ad573a55b96ef001a10af18",
+        "5ad573a55b96ef001a10af19",
+        "5ad573a55b96ef001a10af1a",
+        "5ad573a55b96ef001a10af1b"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Who ended the Warsaw Treaty Organization?",
+      "gold_question": "For how many years did the Warsaw Pact formally exist?",
+      "rouge_l": 0.25,
+      "generated_answer": "V\u00e1clav Havel",
+      "target_model_question": "Who ended the Warsaw Treaty Organization?",
+      "target_model_answer": "V\u00e1clav Havel",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When was the Warsaw Pact officially disbanded?",
+          "answer": "25 February 1991"
+        },
+        {
+          "question": "Who ended the Warsaw Treaty Organization?",
+          "answer": "V\u00e1clav Havel"
+        }
+      ],
+      "salient_sentences": [
+        "On 1 July 1991, in Prague, the Czechoslovak President V\u00e1clav Havel formally ended the 1955 Warsaw Treaty Organization of Friendship, Cooperation, and Mutual Assistance and so disestablished the Warsaw Treaty after 36 years of military alliance with the USSR.",
+        "On 25 February 1991, the Warsaw Pact was declared disbanded at a meeting of defense and foreign ministers from remaining Pact countries meeting in Hungary.",
+        "The USSR disestablished itself in December 1991."
+      ],
+      "qa_prediction": "V\u00e1clav Havel",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 14,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0713277331400b4d7a1",
+        "56dee0713277331400b4d7a2",
+        "56dee0713277331400b4d7a3",
+        "56dee0713277331400b4d7a4",
+        "56dee0713277331400b4d7a5",
+        "5acd132607355d001abf3372",
+        "5acd132607355d001abf3373",
+        "5acd132607355d001abf3374",
+        "5acd132607355d001abf3375",
+        "5acd132607355d001abf3376"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who opposed Descartes?",
+      "gold_question": "Who agreed with Pierre Gassendi?",
+      "rouge_l": 0.25,
+      "generated_answer": "Pierre Gassendi",
+      "target_model_question": "Who opposed Descartes?",
+      "target_model_answer": "Pierre Gassendi",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who opposed Descartes?",
+          "answer": "Pierre Gassendi"
+        },
+        {
+          "question": "What tradition did Gassendi represent?",
+          "answer": "materialist"
+        }
+      ],
+      "salient_sentences": [
+        "There followed the materialist and atheist abb\u00e9 Jean Meslier (1664-1729), Julien Offray de La Mettrie, the German-French Paul-Henri Thiry Baron d'Holbach (1723-1789), the Encyclopedist Denis Diderot (1713-1784), and other French Enlightenment thinkers; as well as (in England) John \"Walking\" Stewart (1747-1822), whose insistence in seeing matter as endowed with a moral dimension had a major impact on the philosophical poetry of William Wordsworth (1770-1850).",
+        "The French cleric Pierre Gassendi (1592-1665) represented the materialist tradition in opposition to the attempts of Ren\u00e9 Descartes (1596-1650) to provide the natural sciences with dualist foundations."
+      ],
+      "qa_prediction": "Pierre Gassendi",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 6,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df14d0c65bf219000b3f49",
+        "56df14d0c65bf219000b3f4a",
+        "5ad572f65b96ef001a10af10",
+        "5ad572f65b96ef001a10af11",
+        "5ad572f65b96ef001a10af12",
+        "5ad572f65b96ef001a10af13"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What was the sole joint action of the multi-national Communist armed forces?",
+      "gold_question": "In which year was the Warsaw Pact activated in a joint action?",
+      "rouge_l": 0.25,
+      "generated_answer": "the Warsaw Pact invasion of Czechoslovakia",
+      "target_model_question": "What was the sole joint action of the multi-national Communist armed forces?",
+      "target_model_answer": "the Warsaw Pact invasion of Czechoslovakia",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the sole joint action of the multi-national Communist armed forces?",
+          "answer": "the Warsaw Pact invasion of Czechoslovakia"
+        },
+        {
+          "question": "Which two countries did not participate in the invasion?",
+          "answer": "Socialist Republic of Romania and the People's Republic of Albania"
+        }
+      ],
+      "salient_sentences": [
+        "All member countries, with the exception of the Socialist Republic of Romania and the People's Republic of Albania participated in the invasion.",
+        "The multi-national Communist armed forces' sole joint action was the Warsaw Pact invasion of Czechoslovakia in August 1968."
+      ],
+      "qa_prediction": "Warsaw Pact invasion of Czechoslovakia",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.3333,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 18,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee82a3277331400b4d7f3",
+        "56dee82a3277331400b4d7f4",
+        "5acd17e107355d001abf3466",
+        "5acd17e107355d001abf3467",
+        "5acd17e107355d001abf3468"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What model describes the universe's composition?",
+      "gold_question": "Which model suggests that matter is 5% of the universe?",
+      "rouge_l": 0.25,
+      "generated_answer": "Lambda-CDM model",
+      "target_model_question": "What model describes the universe's composition?",
+      "target_model_answer": "Lambda-CDM model",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What model describes the universe's composition?",
+          "answer": "Lambda-CDM model"
+        },
+        {
+          "question": "How much of the universe's energy density is ordinary matter?",
+          "answer": "less than 5%"
+        }
+      ],
+      "salient_sentences": [
+        "According to the dominant cosmological model, the Lambda-CDM model, less than 5% of the universe's energy density is made up of the \"matter\" described by the Standard Model of Particle Physics, and the majority of the universe is composed of dark matter and dark energy - with little agreement amongst scientists about what these are made of."
+      ],
+      "qa_prediction": "Lambda-CDM model",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 1.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 18,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee82a3277331400b4d7f3",
+        "56dee82a3277331400b4d7f4",
+        "5acd17e107355d001abf3466",
+        "5acd17e107355d001abf3467",
+        "5acd17e107355d001abf3468"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What model describes the universe's composition?",
+      "gold_question": "Which model suggests that matter is 5% of the universe?",
+      "rouge_l": 0.25,
+      "generated_answer": "Lambda-CDM model",
+      "target_model_question": "What model describes the universe's composition?",
+      "target_model_answer": "Lambda-CDM model",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What percentage of the universe's energy density is made up of Standard Model matter?",
+          "answer": "less than 5%"
+        },
+        {
+          "question": "What model describes the universe's composition?",
+          "answer": "Lambda-CDM model"
+        }
+      ],
+      "salient_sentences": [
+        "According to the dominant cosmological model, the Lambda-CDM model, less than 5% of the universe's energy density is made up of the \"matter\" described by the Standard Model of Particle Physics, and the majority of the universe is composed of dark matter and dark energy - with little agreement amongst scientists about what these are made of."
+      ],
+      "qa_prediction": "Lambda-CDM model",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 1.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 4,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df11aac65bf219000b3f1f",
+        "56df11aac65bf219000b3f20",
+        "5ad56f1b5b96ef001a10aeb0",
+        "5ad56f1b5b96ef001a10aeb1",
+        "5ad56f1b5b96ef001a10aeb2",
+        "5ad56f1b5b96ef001a10aeb3",
+        "5ad56f1b5b96ef001a10aeb4"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What did Halvard Lange describe about the incorporation of West Germany into the organization?",
+      "gold_question": "Halvard Lange was a minister of which NATO member?",
+      "rouge_l": 0.2609,
+      "generated_answer": "a decisive turning point in the history of our continent",
+      "target_model_question": "What did Halvard Lange describe about the incorporation of West Germany into the organization?",
+      "target_model_answer": "a decisive turning point in the history of our continent",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did the admission of the Federal Republic of Germany to the North Atlantic Pact occur?",
+          "answer": "23 October 1954"
+        },
+        {
+          "question": "What did Halvard Lange describe about the incorporation of West Germany into the organization?",
+          "answer": "a decisive turning point in the history of our continent"
+        }
+      ],
+      "salient_sentences": [
+        "On 23 October 1954 \u2013 only nine years after Allies (UK, USA and USSR) defeated Nazi Germany ending World War II in Europe \u2013 the admission of the Federal Republic of Germany to the North Atlantic Pact was finally decided.",
+        "The incorporation of West Germany into the organization on 9 May 1955 was described as \"a decisive turning point in the history of our continent\" by Halvard Lange, Foreign Affairs Minister of Norway at the time.",
+        "In November 1954, the USSR requested a new European Security Treaty, in order to make a final attempt to not have a remilitarized West Germany potentially opposed to the Soviet Union, with no success."
+      ],
+      "qa_prediction": "a decisive turning point in the history of our continent",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 6,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df14d0c65bf219000b3f49",
+        "56df14d0c65bf219000b3f4a",
+        "5ad572f65b96ef001a10af10",
+        "5ad572f65b96ef001a10af11",
+        "5ad572f65b96ef001a10af12",
+        "5ad572f65b96ef001a10af13"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What was the sole joint action by the Communist armed forces?",
+      "gold_question": "In which year was the Warsaw Pact activated in a joint action?",
+      "rouge_l": 0.2609,
+      "generated_answer": "Warsaw Pact invasion of Czechoslovakia",
+      "target_model_question": "What was the sole joint action by the Communist armed forces?",
+      "target_model_answer": "Warsaw Pact invasion of Czechoslovakia",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the sole joint action by the Communist armed forces?",
+          "answer": "Warsaw Pact invasion of Czechoslovakia"
+        },
+        {
+          "question": "Which two countries did not participate in the invasion?",
+          "answer": "Socialist Republic of Romania, People's Republic of Albania"
+        }
+      ],
+      "salient_sentences": [
+        "All member countries, with the exception of the Socialist Republic of Romania and the People's Republic of Albania participated in the invasion.",
+        "The multi-national Communist armed forces' sole joint action was the Warsaw Pact invasion of Czechoslovakia in August 1968."
+      ],
+      "qa_prediction": "Warsaw Pact invasion of Czechoslovakia",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.3333,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 9,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de936b4396321400ee2a30",
+        "56de936b4396321400ee2a31",
+        "5acd0a0107355d001abf3200",
+        "5acd0a0107355d001abf3201",
+        "5acd0a0107355d001abf3202",
+        "5acd0a0107355d001abf3203"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What does philosophical physicalism incorporate beyond ordinary matter?",
+      "gold_question": "What are some examples of philosophical physicalism?",
+      "rouge_l": 0.2667,
+      "generated_answer": "spacetime, physical energies and forces, dark matter",
+      "target_model_question": "What does philosophical physicalism incorporate beyond ordinary matter?",
+      "target_model_answer": "spacetime, physical energies and forces, dark matter",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What term is preferred over materialism by some?",
+          "answer": "physicalism"
+        },
+        {
+          "question": "What does philosophical physicalism incorporate beyond ordinary matter?",
+          "answer": "spacetime, physical energies and forces, dark matter"
+        }
+      ],
+      "salient_sentences": [
+        "Philosophical physicalism has evolved from materialism with the discoveries of the physical sciences to incorporate more sophisticated notions of physicality than mere ordinary matter, such as: spacetime, physical energies and forces, dark matter, and so on."
+      ],
+      "qa_prediction": "more sophisticated notions of physicality",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 5,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df12853277331400b4d94f",
+        "56df12853277331400b4d950",
+        "5ad570205b96ef001a10aecc",
+        "5ad570205b96ef001a10aecd",
+        "5ad570205b96ef001a10aece",
+        "5ad570205b96ef001a10aecf"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What was created to counter West Germany's rearmament?",
+      "gold_question": "West Germany's army was know as what?",
+      "rouge_l": 0.2667,
+      "generated_answer": "National People's Army",
+      "target_model_question": "What was created to counter West Germany's rearmament?",
+      "target_model_answer": "National People's Army",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who allowed East Germany to re-arm?",
+          "answer": "the Soviet Union"
+        },
+        {
+          "question": "What was created to counter West Germany's rearmament?",
+          "answer": "National People's Army"
+        }
+      ],
+      "salient_sentences": [
+        "One of the founding members, East Germany was allowed to re-arm by the Soviet Union and the National People's Army was established as the armed forces of the country to counter the rearmament of West Germany."
+      ],
+      "qa_prediction": "the National People's Army",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 1.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 19,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56deea683277331400b4d80a",
+        "56deea683277331400b4d80b",
+        "5acd192c07355d001abf34b6",
+        "5acd192c07355d001abf34b7",
+        "5acd192c07355d001abf34b8",
+        "5acd192c07355d001abf34b9",
+        "5acd192c07355d001abf34ba"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Which book was published in 1991 by Gribbin and Davies?",
+      "gold_question": "When was John Gribbin born? ",
+      "rouge_l": 0.2667,
+      "generated_answer": "The Matter Myth",
+      "target_model_question": "Which book was published in 1991 by Gribbin and Davies?",
+      "target_model_answer": "The Matter Myth",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What have some modern day physicists argued about materialism?",
+          "answer": "disproven by certain scientific findings"
+        },
+        {
+          "question": "Which book was published in 1991 by Gribbin and Davies?",
+          "answer": "The Matter Myth"
+        }
+      ],
+      "salient_sentences": [
+        "Some modern day physicists and science writers\u2014such as Paul Davies and John Gribbin\u2014have argued that materialism has been disproven by certain scientific findings in physics, such as quantum mechanics and chaos theory.",
+        "In 1991, Gribbin and Davies released their book The Matter Myth, the first chapter of which, \"The Death of Materialism\", contained the following passage:"
+      ],
+      "qa_prediction": "The Matter Myth",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 1.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 18,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee82a3277331400b4d7f3",
+        "56dee82a3277331400b4d7f4",
+        "5acd17e107355d001abf3466",
+        "5acd17e107355d001abf3467",
+        "5acd17e107355d001abf3468"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "How much of the universe's energy density is ordinary matter?",
+      "gold_question": "The standard model believes none of the universe is composed of what?",
+      "rouge_l": 0.2727,
+      "generated_answer": "less than 5%",
+      "target_model_question": "How much of the universe's energy density is ordinary matter?",
+      "target_model_answer": "less than 5%",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What model describes the universe's composition?",
+          "answer": "Lambda-CDM model"
+        },
+        {
+          "question": "How much of the universe's energy density is ordinary matter?",
+          "answer": "less than 5%"
+        }
+      ],
+      "salient_sentences": [
+        "According to the dominant cosmological model, the Lambda-CDM model, less than 5% of the universe's energy density is made up of the \"matter\" described by the Standard Model of Particle Physics, and the majority of the universe is composed of dark matter and dark energy - with little agreement amongst scientists about what these are made of."
+      ],
+      "qa_prediction": "less than 5%",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 10,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de94434396321400ee2a3b",
+        "5acd0a8407355d001abf3208",
+        "5acd0a8407355d001abf3209",
+        "5acd0a8407355d001abf320a",
+        "5acd0a8407355d001abf320b",
+        "5acd0a8407355d001abf320c"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "How many ontological theories does materialism contrast with?",
+      "gold_question": "What class does materialism belong to?",
+      "rouge_l": 0.2857,
+      "generated_answer": "three",
+      "target_model_question": "How many ontological theories does materialism contrast with?",
+      "target_model_answer": "three",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What class does materialism belong to?",
+          "answer": "monist ontology"
+        },
+        {
+          "question": "How many ontological theories does materialism contrast with?",
+          "answer": "three"
+        }
+      ],
+      "salient_sentences": [],
+      "qa_prediction": "idealism, neutral monism, and spiritualism",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 4,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df11aac65bf219000b3f1f",
+        "56df11aac65bf219000b3f20",
+        "5ad56f1b5b96ef001a10aeb0",
+        "5ad56f1b5b96ef001a10aeb1",
+        "5ad56f1b5b96ef001a10aeb2",
+        "5ad56f1b5b96ef001a10aeb3",
+        "5ad56f1b5b96ef001a10aeb4"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Who described the admission of West Germany as a decisive turning point?",
+      "gold_question": "Who was Foreign Affairs Minister of Germany in 1955?",
+      "rouge_l": 0.2857,
+      "generated_answer": "Halvard Lange",
+      "target_model_question": "Who described the admission of West Germany as a decisive turning point?",
+      "target_model_answer": "Halvard Lange",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did the Federal Republic of Germany join the North Atlantic Pact?",
+          "answer": "23 October 1954"
+        },
+        {
+          "question": "Who described the admission of West Germany as a decisive turning point?",
+          "answer": "Halvard Lange"
+        }
+      ],
+      "salient_sentences": [
+        "On 23 October 1954 \u2013 only nine years after Allies (UK, USA and USSR) defeated Nazi Germany ending World War II in Europe \u2013 the admission of the Federal Republic of Germany to the North Atlantic Pact was finally decided.",
+        "The incorporation of West Germany into the organization on 9 May 1955 was described as \"a decisive turning point in the history of our continent\" by Halvard Lange, Foreign Affairs Minister of Norway at the time.",
+        "In November 1954, the USSR requested a new European Security Treaty, in order to make a final attempt to not have a remilitarized West Germany potentially opposed to the Soviet Union, with no success."
+      ],
+      "qa_prediction": "Halvard Lange",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 16,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee1f3c65bf219000b3dbf",
+        "56dee1f3c65bf219000b3dc0",
+        "56dee1f3c65bf219000b3dc1",
+        "56dee1f3c65bf219000b3dc2",
+        "5acd143307355d001abf339a",
+        "5acd143307355d001abf339b",
+        "5acd143307355d001abf339c",
+        "5acd143307355d001abf339d",
+        "5acd143307355d001abf339e"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What was the name of Feuerbach's influential book?",
+      "gold_question": "What did the author of \"The Essence of Christianity\" consider religion to be?",
+      "rouge_l": 0.2857,
+      "generated_answer": "The Essence of Christianity",
+      "target_model_question": "What was the name of Feuerbach's influential book?",
+      "target_model_answer": "The Essence of Christianity",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the name of Feuerbach's influential book?",
+          "answer": "The Essence of Christianity"
+        },
+        {
+          "question": "Who was influenced by Feuerbach's materialism?",
+          "answer": "Karl Marx"
+        }
+      ],
+      "salient_sentences": [
+        "The German materialist and atheist anthropologist Ludwig Feuerbach would signal a new turn in materialism through his book, The Essence of Christianity (1841), which provided a humanist account of religion as the outward projection of man's inward nature."
+      ],
+      "qa_prediction": "The Essence of Christianity",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.2222,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 7,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df18663277331400b4d981",
+        "56df18663277331400b4d982",
+        "56df18663277331400b4d983",
+        "5ad573a55b96ef001a10af18",
+        "5ad573a55b96ef001a10af19",
+        "5ad573a55b96ef001a10af1a",
+        "5ad573a55b96ef001a10af1b"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "When and where did V\u00e1clav Havel end the Warsaw Treaty?",
+      "gold_question": "For how many years did the Warsaw Pact formally exist?",
+      "rouge_l": 0.3,
+      "generated_answer": "On 1 July 1991, in Prague",
+      "target_model_question": "When and where did V\u00e1clav Havel end the Warsaw Treaty?",
+      "target_model_answer": "On 1 July 1991, in Prague",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When and where did V\u00e1clav Havel end the Warsaw Treaty?",
+          "answer": "On 1 July 1991, in Prague"
+        },
+        {
+          "question": "What happened to the Warsaw Pact in February 1991?",
+          "answer": "It was declared disbanded"
+        }
+      ],
+      "salient_sentences": [
+        "On 1 July 1991, in Prague, the Czechoslovak President V\u00e1clav Havel formally ended the 1955 Warsaw Treaty Organization of Friendship, Cooperation, and Mutual Assistance and so disestablished the Warsaw Treaty after 36 years of military alliance with the USSR.",
+        "On 25 February 1991, the Warsaw Pact was declared disbanded at a meeting of defense and foreign ministers from remaining Pact countries meeting in Hungary.",
+        "The USSR disestablished itself in December 1991."
+      ],
+      "qa_prediction": "1 July 1991",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.6667,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 13,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dedeeac65bf219000b3d8b",
+        "56dedeeac65bf219000b3d8c",
+        "56dedeeac65bf219000b3d8d",
+        "56dedeeac65bf219000b3d8e",
+        "5acd11c607355d001abf3330",
+        "5acd11c607355d001abf3331",
+        "5acd11c607355d001abf3332",
+        "5acd11c607355d001abf3333",
+        "5acd11c607355d001abf3334"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What happened to the C\u0101rv\u0101ka philosophy by 1400?",
+      "gold_question": "What philosphy continued after 1400?",
+      "rouge_l": 0.3077,
+      "generated_answer": "it appeared to have died out",
+      "target_model_question": "What happened to the C\u0101rv\u0101ka philosophy by 1400?",
+      "target_model_answer": "it appeared to have died out",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+          "answer": "14th century"
+        },
+        {
+          "question": "What happened to the C\u0101rv\u0101ka philosophy by 1400?",
+          "answer": "it appeared to have died out"
+        }
+      ],
+      "salient_sentences": [
+        "Later Indian materialist Jayaraashi Bhatta (6th century) in his work Tattvopaplavasimha (\"The upsetting of all principles\") refuted the Nyaya Sutra epistemology.",
+        "When Madhavacharya compiled Sarva-dar\u015bana-samgraha (a digest of all philosophies) in the 14th century, he had no C\u0101rv\u0101ka/Lok\u0101yata text to quote from, or even refer to.",
+        "The materialistic C\u0101rv\u0101ka philosophy appears to have died out some time after 1400."
+      ],
+      "qa_prediction": "died out",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.5,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 18,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee82a3277331400b4d7f3",
+        "56dee82a3277331400b4d7f4",
+        "5acd17e107355d001abf3466",
+        "5acd17e107355d001abf3467",
+        "5acd17e107355d001abf3468"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What percentage of the universe's energy density is made up of Standard Model matter?",
+      "gold_question": "The standard model believes none of the universe is composed of what?",
+      "rouge_l": 0.3077,
+      "generated_answer": "less than 5%",
+      "target_model_question": "What percentage of the universe's energy density is made up of Standard Model matter?",
+      "target_model_answer": "less than 5%",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What percentage of the universe's energy density is made up of Standard Model matter?",
+          "answer": "less than 5%"
+        },
+        {
+          "question": "What model describes the universe's composition?",
+          "answer": "Lambda-CDM model"
+        }
+      ],
+      "salient_sentences": [
+        "According to the dominant cosmological model, the Lambda-CDM model, less than 5% of the universe's energy density is made up of the \"matter\" described by the Standard Model of Particle Physics, and the majority of the universe is composed of dark matter and dark energy - with little agreement amongst scientists about what these are made of."
+      ],
+      "qa_prediction": "less than 5%",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 12,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dede143277331400b4d77c",
+        "56dede143277331400b4d77d",
+        "5acd10f207355d001abf3308",
+        "5acd10f207355d001abf3309",
+        "5acd10f207355d001abf330a",
+        "5acd10f207355d001abf330b",
+        "5acd10f207355d001abf330c"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who wrote De Rerum Natura?",
+      "gold_question": "De Rerum Natura is a poem by who?",
+      "rouge_l": 0.3077,
+      "generated_answer": "Lucretius",
+      "target_model_question": "Who wrote De Rerum Natura?",
+      "target_model_answer": "Lucretius",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who wrote De Rerum Natura?",
+          "answer": "Lucretius"
+        },
+        {
+          "question": "What period were Thales and Anaxagoras from?",
+          "answer": "Ancient Greek"
+        }
+      ],
+      "salient_sentences": [
+        "The Latin poem De Rerum Natura by Lucretius (ca.",
+        "Ancient Greek philosophers like Thales, Anaxagoras (ca."
+      ],
+      "qa_prediction": "Lucretius",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 1.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 1,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df03473277331400b4d8ab",
+        "56df03473277331400b4d8ac",
+        "5ad56b055b96ef001a10ae52",
+        "5ad56b055b96ef001a10ae53",
+        "5ad56b055b96ef001a10ae54",
+        "5ad56b055b96ef001a10ae55"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "When did the Berlin Conference take place?",
+      "gold_question": "Who wanted to join NATO after the Berlin Conference of January-June 1954?",
+      "rouge_l": 0.3158,
+      "generated_answer": "January\u2013February 1954",
+      "target_model_question": "When did the Berlin Conference take place?",
+      "target_model_answer": "January\u2013February 1954",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did the Berlin Conference take place?",
+          "answer": "January\u2013February 1954"
+        },
+        {
+          "question": "What was Adenauer's fear regarding German unification?",
+          "answer": "end of the CDU's dominance in the Bundestag"
+        }
+      ],
+      "salient_sentences": [
+        "Proposals for the reunification of Germany were nothing new: earlier on 20 March 1952, talks about a German reunification, initiated by the socalled 'Stalin Note', ended after the United Kingdom, France, and the United States insisted that a unified Germany should not be neutral and should be free to join the European Defence Community and rearm.",
+        "Soviet foreign minister Molotov made proposals to have Germany reunified and elections for a pan-German government, under conditions of withdrawal of the four powers armies and German neutrality, but all were refused by the other foreign ministers, Dulles (USA), Eden (UK) and Bidault (France).",
+        "James Dunn (USA), who met in Paris with Eden, Adenauer and Robert Schuman (France), affirmed that \"the object should be to avoid discussion with the Russians and to press on the European Defense Community\"."
+      ],
+      "qa_prediction": "January\u2013February 1954",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "Low lexical overlap with the closest gold question",
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 4,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df11aac65bf219000b3f1f",
+        "56df11aac65bf219000b3f20",
+        "5ad56f1b5b96ef001a10aeb0",
+        "5ad56f1b5b96ef001a10aeb1",
+        "5ad56f1b5b96ef001a10aeb2",
+        "5ad56f1b5b96ef001a10aeb3",
+        "5ad56f1b5b96ef001a10aeb4"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "When did the Federal Republic of Germany join the North Atlantic Pact?",
+      "gold_question": "East Germany was accepted to the North Atlantic Pact on what date?",
+      "rouge_l": 0.3333,
+      "generated_answer": "23 October 1954",
+      "target_model_question": "When did the Federal Republic of Germany join the North Atlantic Pact?",
+      "target_model_answer": "23 October 1954",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did the Federal Republic of Germany join the North Atlantic Pact?",
+          "answer": "23 October 1954"
+        },
+        {
+          "question": "Who described the admission of West Germany as a decisive turning point?",
+          "answer": "Halvard Lange"
+        }
+      ],
+      "salient_sentences": [
+        "On 23 October 1954 \u2013 only nine years after Allies (UK, USA and USSR) defeated Nazi Germany ending World War II in Europe \u2013 the admission of the Federal Republic of Germany to the North Atlantic Pact was finally decided.",
+        "The incorporation of West Germany into the organization on 9 May 1955 was described as \"a decisive turning point in the history of our continent\" by Halvard Lange, Foreign Affairs Minister of Norway at the time.",
+        "In November 1954, the USSR requested a new European Security Treaty, in order to make a final attempt to not have a remilitarized West Germany potentially opposed to the Soviet Union, with no success."
+      ],
+      "qa_prediction": "23 October 1954",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.5,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 11,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de9b07cffd8e1900b4ba2b",
+        "56de9b07cffd8e1900b4ba2c",
+        "56de9b07cffd8e1900b4ba2d",
+        "56de9b07cffd8e1900b4ba2e",
+        "5acd104707355d001abf32e0",
+        "5acd104707355d001abf32e1",
+        "5acd104707355d001abf32e2",
+        "5acd104707355d001abf32e3",
+        "5acd104707355d001abf32e4"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "When did materialism develop in Ancient India?",
+      "gold_question": "Around what time did materialism become part of Ancient Indian philosophy?",
+      "rouge_l": 0.3333,
+      "generated_answer": "around 600 BC",
+      "target_model_question": "When did materialism develop in Ancient India?",
+      "target_model_answer": "around 600 BC",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did materialism develop in Ancient India?",
+          "answer": "around 600 BC"
+        },
+        {
+          "question": "Who became one of the early proponents of atomism?",
+          "answer": "Kanada"
+        }
+      ],
+      "salient_sentences": [
+        "In Ancient Indian philosophy, materialism developed around 600 BC with the works of Ajita Kesakambali, Payasi, Kanada, and the proponents of the C\u0101rv\u0101ka school of philosophy.",
+        "The Nyaya\u2013Vaisesika school (600 BC - 100 BC) developed one of the earliest forms of atomism, though their proofs of God and their positing that the consciousness was not material precludes labelling them as materialists."
+      ],
+      "qa_prediction": "around 600 BC",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.8,
+      "reasons": [
+        "Low lexical overlap with the closest gold question"
+      ]
+    },
+    {
+      "example_index": 9,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de936b4396321400ee2a30",
+        "56de936b4396321400ee2a31",
+        "5acd0a0107355d001abf3200",
+        "5acd0a0107355d001abf3201",
+        "5acd0a0107355d001abf3202",
+        "5acd0a0107355d001abf3203"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What is materialism related to?",
+      "gold_question": "What is the definition of non-physicalism? ",
+      "rouge_l": 0.3636,
+      "generated_answer": "physicalism",
+      "target_model_question": "What is materialism related to?",
+      "target_model_answer": "physicalism",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What is materialism related to?",
+          "answer": "physicalism"
+        },
+        {
+          "question": "What does physicalism include beyond ordinary matter?",
+          "answer": "spacetime, physical energies and forces, dark matter"
+        }
+      ],
+      "salient_sentences": [
+        "Philosophical physicalism has evolved from materialism with the discoveries of the physical sciences to incorporate more sophisticated notions of physicality than mere ordinary matter, such as: spacetime, physical energies and forces, dark matter, and so on."
+      ],
+      "qa_prediction": "physicalism",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 19,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56deea683277331400b4d80a",
+        "56deea683277331400b4d80b",
+        "5acd192c07355d001abf34b6",
+        "5acd192c07355d001abf34b7",
+        "5acd192c07355d001abf34b8",
+        "5acd192c07355d001abf34b9",
+        "5acd192c07355d001abf34ba"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What is the title of the first chapter in The Matter Myth?",
+      "gold_question": "What is the name of the 1991 book by Paul Davies and John Gribbins?",
+      "rouge_l": 0.3846,
+      "generated_answer": "The Death of Materialism",
+      "target_model_question": "What is the title of the first chapter in The Matter Myth?",
+      "target_model_answer": "The Death of Materialism",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who released The Matter Myth in 1991?",
+          "answer": "Gribbin and Davies"
+        },
+        {
+          "question": "What is the title of the first chapter in The Matter Myth?",
+          "answer": "The Death of Materialism"
+        }
+      ],
+      "salient_sentences": [
+        "Some modern day physicists and science writers\u2014such as Paul Davies and John Gribbin\u2014have argued that materialism has been disproven by certain scientific findings in physics, such as quantum mechanics and chaos theory.",
+        "In 1991, Gribbin and Davies released their book The Matter Myth, the first chapter of which, \"The Death of Materialism\", contained the following passage:"
+      ],
+      "qa_prediction": "The Death of Materialism",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 15,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0f43277331400b4d7ab",
+        "56dee0f43277331400b4d7ac",
+        "5acd139a07355d001abf3386",
+        "5acd139a07355d001abf3387",
+        "5acd139a07355d001abf3388",
+        "5acd139a07355d001abf3389",
+        "5acd139a07355d001abf338a"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "How does the brain affect perception according to Schopenhauer?",
+      "gold_question": "What does the brain not decide? ",
+      "rouge_l": 0.4,
+      "generated_answer": "the determiner of how material objects will be experienced or perceived",
+      "target_model_question": "How does the brain affect perception according to Schopenhauer?",
+      "target_model_answer": "the determiner of how material objects will be experienced or perceived",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did Schopenhauer say about materialism?",
+          "answer": "philosophy of the subject who forgets to take account of himself"
+        },
+        {
+          "question": "How does the brain affect perception according to Schopenhauer?",
+          "answer": "the determiner of how material objects will be experienced or perceived"
+        }
+      ],
+      "salient_sentences": [
+        "Arthur Schopenhauer (1788-1860) wrote that \"...materialism is the philosophy of the subject who forgets to take account of himself\"."
+      ],
+      "qa_prediction": "determiner",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.1818,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 15,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0f43277331400b4d7ab",
+        "56dee0f43277331400b4d7ac",
+        "5acd139a07355d001abf3386",
+        "5acd139a07355d001abf3387",
+        "5acd139a07355d001abf3388",
+        "5acd139a07355d001abf3389",
+        "5acd139a07355d001abf338a"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "How does the brain affect perception of material objects?",
+      "gold_question": "What does the brain not decide? ",
+      "rouge_l": 0.4,
+      "generated_answer": "determiner of how material objects will be experienced or perceived",
+      "target_model_question": "How does the brain affect perception of material objects?",
+      "target_model_answer": "determiner of how material objects will be experienced or perceived",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What is Arthur Schopenhauer's view on materialism?",
+          "answer": "philosophy of the subject who forgets to take account of himself"
+        },
+        {
+          "question": "How does the brain affect perception of material objects?",
+          "answer": "determiner of how material objects will be experienced or perceived"
+        }
+      ],
+      "salient_sentences": [
+        "Arthur Schopenhauer (1788-1860) wrote that \"...materialism is the philosophy of the subject who forgets to take account of himself\"."
+      ],
+      "qa_prediction": "determiner",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.1818,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 17,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee346c65bf219000b3ddf",
+        "5acd14cb07355d001abf33c0",
+        "5acd14cb07355d001abf33c1",
+        "5acd14cb07355d001abf33c2",
+        "5acd14cb07355d001abf33c3",
+        "5acd14cb07355d001abf33c4"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What framework do these philosophers operate within?",
+      "gold_question": "What 3 theories do modern philosophers disagree with? ",
+      "rouge_l": 0.4,
+      "generated_answer": "broadly physicalist or materialist",
+      "target_model_question": "What framework do these philosophers operate within?",
+      "target_model_answer": "broadly physicalist or materialist",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who are some current and recent philosophers mentioned?",
+          "answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor"
+        },
+        {
+          "question": "What framework do these philosophers operate within?",
+          "answer": "broadly physicalist or materialist"
+        }
+      ],
+      "salient_sentences": [
+        "Many current and recent philosophers\u2014e.g., Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor\u2014operate within a broadly physicalist or materialist framework, producing rival accounts of how best to accommodate mind, including functionalism, anomalous monism, identity theory, and so on."
+      ],
+      "qa_prediction": "physicalist or materialist",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.8571,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 17,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee346c65bf219000b3ddf",
+        "5acd14cb07355d001abf33c0",
+        "5acd14cb07355d001abf33c1",
+        "5acd14cb07355d001abf33c2",
+        "5acd14cb07355d001abf33c3",
+        "5acd14cb07355d001abf33c4"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What framework do these philosophers operate within?",
+      "gold_question": "What 3 theories do modern philosophers disagree with? ",
+      "rouge_l": 0.4,
+      "generated_answer": "broadly physicalist or materialist",
+      "target_model_question": "What framework do these philosophers operate within?",
+      "target_model_answer": "broadly physicalist or materialist",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who are some recent philosophers mentioned?",
+          "answer": "Daniel Dennett, Willard Van Orman Quine, Donald Davidson, Jerry Fodor"
+        },
+        {
+          "question": "What framework do these philosophers operate within?",
+          "answer": "broadly physicalist or materialist"
+        }
+      ],
+      "salient_sentences": [
+        "Many current and recent philosophers\u2014e.g., Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor\u2014operate within a broadly physicalist or materialist framework, producing rival accounts of how best to accommodate mind, including functionalism, anomalous monism, identity theory, and so on."
+      ],
+      "qa_prediction": "physicalist or materialist",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.8571,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 13,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dedeeac65bf219000b3d8b",
+        "56dedeeac65bf219000b3d8c",
+        "56dedeeac65bf219000b3d8d",
+        "56dedeeac65bf219000b3d8e",
+        "5acd11c607355d001abf3330",
+        "5acd11c607355d001abf3331",
+        "5acd11c607355d001abf3332",
+        "5acd11c607355d001abf3333",
+        "5acd11c607355d001abf3334"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who refuted the Nyaya Sutra epistemology?",
+      "gold_question": "Who wrote the Sarva-dar\u015bana-samgraha?",
+      "rouge_l": 0.4,
+      "generated_answer": "Jayaraashi Bhatta",
+      "target_model_question": "Who refuted the Nyaya Sutra epistemology?",
+      "target_model_answer": "Jayaraashi Bhatta",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who refuted the Nyaya Sutra epistemology?",
+          "answer": "Jayaraashi Bhatta"
+        },
+        {
+          "question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+          "answer": "14th century"
+        }
+      ],
+      "salient_sentences": [
+        "Later Indian materialist Jayaraashi Bhatta (6th century) in his work Tattvopaplavasimha (\"The upsetting of all principles\") refuted the Nyaya Sutra epistemology.",
+        "When Madhavacharya compiled Sarva-dar\u015bana-samgraha (a digest of all philosophies) in the 14th century, he had no C\u0101rv\u0101ka/Lok\u0101yata text to quote from, or even refer to.",
+        "The materialistic C\u0101rv\u0101ka philosophy appears to have died out some time after 1400."
+      ],
+      "qa_prediction": "Jayaraashi Bhatta",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 13,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dedeeac65bf219000b3d8b",
+        "56dedeeac65bf219000b3d8c",
+        "56dedeeac65bf219000b3d8d",
+        "56dedeeac65bf219000b3d8e",
+        "5acd11c607355d001abf3330",
+        "5acd11c607355d001abf3331",
+        "5acd11c607355d001abf3332",
+        "5acd11c607355d001abf3333",
+        "5acd11c607355d001abf3334"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+      "gold_question": "When did Jayaraashi Bhatta die?",
+      "rouge_l": 0.4,
+      "generated_answer": "14th century",
+      "target_model_question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+      "target_model_answer": "14th century",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who refuted the Nyaya Sutra epistemology?",
+          "answer": "Jayaraashi Bhatta"
+        },
+        {
+          "question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+          "answer": "14th century"
+        }
+      ],
+      "salient_sentences": [
+        "Later Indian materialist Jayaraashi Bhatta (6th century) in his work Tattvopaplavasimha (\"The upsetting of all principles\") refuted the Nyaya Sutra epistemology.",
+        "When Madhavacharya compiled Sarva-dar\u015bana-samgraha (a digest of all philosophies) in the 14th century, he had no C\u0101rv\u0101ka/Lok\u0101yata text to quote from, or even refer to.",
+        "The materialistic C\u0101rv\u0101ka philosophy appears to have died out some time after 1400."
+      ],
+      "qa_prediction": "14th century",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 15,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dee0f43277331400b4d7ab",
+        "56dee0f43277331400b4d7ac",
+        "5acd139a07355d001abf3386",
+        "5acd139a07355d001abf3387",
+        "5acd139a07355d001abf3388",
+        "5acd139a07355d001abf3389",
+        "5acd139a07355d001abf338a"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What did Schopenhauer say about materialism?",
+      "gold_question": "What did he say that the brain would decide?",
+      "rouge_l": 0.4,
+      "generated_answer": "philosophy of the subject who forgets to take account of himself",
+      "target_model_question": "What did Schopenhauer say about materialism?",
+      "target_model_answer": "philosophy of the subject who forgets to take account of himself",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did Schopenhauer say about materialism?",
+          "answer": "philosophy of the subject who forgets to take account of himself"
+        },
+        {
+          "question": "How does the brain affect perception according to Schopenhauer?",
+          "answer": "the determiner of how material objects will be experienced or perceived"
+        }
+      ],
+      "salient_sentences": [
+        "Arthur Schopenhauer (1788-1860) wrote that \"...materialism is the philosophy of the subject who forgets to take account of himself\"."
+      ],
+      "qa_prediction": "the philosophy of the subject who forgets to take account of himself\".",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 13,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56dedeeac65bf219000b3d8b",
+        "56dedeeac65bf219000b3d8c",
+        "56dedeeac65bf219000b3d8d",
+        "56dedeeac65bf219000b3d8e",
+        "5acd11c607355d001abf3330",
+        "5acd11c607355d001abf3331",
+        "5acd11c607355d001abf3332",
+        "5acd11c607355d001abf3333",
+        "5acd11c607355d001abf3334"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+      "gold_question": "When did Jayaraashi Bhatta die?",
+      "rouge_l": 0.4,
+      "generated_answer": "14th century",
+      "target_model_question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+      "target_model_answer": "14th century",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When did Madhavacharya compile Sarva-dar\u015bana-samgraha?",
+          "answer": "14th century"
+        },
+        {
+          "question": "What happened to the C\u0101rv\u0101ka philosophy by 1400?",
+          "answer": "it appeared to have died out"
+        }
+      ],
+      "salient_sentences": [
+        "Later Indian materialist Jayaraashi Bhatta (6th century) in his work Tattvopaplavasimha (\"The upsetting of all principles\") refuted the Nyaya Sutra epistemology.",
+        "When Madhavacharya compiled Sarva-dar\u015bana-samgraha (a digest of all philosophies) in the 14th century, he had no C\u0101rv\u0101ka/Lok\u0101yata text to quote from, or even refer to.",
+        "The materialistic C\u0101rv\u0101ka philosophy appears to have died out some time after 1400."
+      ],
+      "qa_prediction": "14th century",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 7,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df18663277331400b4d981",
+        "56df18663277331400b4d982",
+        "56df18663277331400b4d983",
+        "5ad573a55b96ef001a10af18",
+        "5ad573a55b96ef001a10af19",
+        "5ad573a55b96ef001a10af1a",
+        "5ad573a55b96ef001a10af1b"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What happened to the Warsaw Pact in February 1991?",
+      "gold_question": "In which country was the Warsaw Pact disbanded in 1981?",
+      "rouge_l": 0.4211,
+      "generated_answer": "It was declared disbanded",
+      "target_model_question": "What happened to the Warsaw Pact in February 1991?",
+      "target_model_answer": "It was declared disbanded",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When and where did V\u00e1clav Havel end the Warsaw Treaty?",
+          "answer": "On 1 July 1991, in Prague"
+        },
+        {
+          "question": "What happened to the Warsaw Pact in February 1991?",
+          "answer": "It was declared disbanded"
+        }
+      ],
+      "salient_sentences": [
+        "On 1 July 1991, in Prague, the Czechoslovak President V\u00e1clav Havel formally ended the 1955 Warsaw Treaty Organization of Friendship, Cooperation, and Mutual Assistance and so disestablished the Warsaw Treaty after 36 years of military alliance with the USSR.",
+        "On 25 February 1991, the Warsaw Pact was declared disbanded at a meeting of defense and foreign ministers from remaining Pact countries meeting in Hungary.",
+        "The USSR disestablished itself in December 1991."
+      ],
+      "qa_prediction": "the Warsaw Pact was declared disbanded",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.6667,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 3,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df114cc65bf219000b3f1d",
+        "5ad56e595b96ef001a10ae96",
+        "5ad56e595b96ef001a10ae97",
+        "5ad56e595b96ef001a10ae98",
+        "5ad56e595b96ef001a10ae99"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What did the French Parliament do on 30 August 1954?",
+      "gold_question": "Which parliament rejected the EDC on 30 April 1954?",
+      "rouge_l": 0.4211,
+      "generated_answer": "rejected the EDC",
+      "target_model_question": "What did the French Parliament do on 30 August 1954?",
+      "target_model_answer": "rejected the EDC",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did the French Parliament do on 30 August 1954?",
+          "answer": "rejected the EDC"
+        },
+        {
+          "question": "What was the US objective regarding Germany's rearmament?",
+          "answer": "to associate Germany militarily with the West"
+        }
+      ],
+      "salient_sentences": [
+        "The US Department of State started to elaborate alternatives: Germany would be invited to join NATO or, in the case of French obstructionism, strategies to circumvent a French veto would be implemented in order to obtain a German rearmament outside NATO.",
+        "On 30 August 1954 French Parliament rejected the EDC, thus ensuring its failure and blocking a major objective of US policy towards Europe: to associate Germany militarily with the West.",
+        "Memories of the Nazi occupation were still strong, and the rearmament of Germany was feared by France too."
+      ],
+      "qa_prediction": "rejected the EDC",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 3,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df114cc65bf219000b3f1d",
+        "5ad56e595b96ef001a10ae96",
+        "5ad56e595b96ef001a10ae97",
+        "5ad56e595b96ef001a10ae98",
+        "5ad56e595b96ef001a10ae99"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What did the French Parliament reject on 30 August 1954?",
+      "gold_question": "Which parliament rejected the EDC on 30 April 1954?",
+      "rouge_l": 0.4211,
+      "generated_answer": "the EDC",
+      "target_model_question": "What did the French Parliament reject on 30 August 1954?",
+      "target_model_answer": "the EDC",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What did the French Parliament reject on 30 August 1954?",
+          "answer": "the EDC"
+        },
+        {
+          "question": "Why did the US Department of State start to develop alternatives?",
+          "answer": "to obtain a German rearmament"
+        }
+      ],
+      "salient_sentences": [
+        "The US Department of State started to elaborate alternatives: Germany would be invited to join NATO or, in the case of French obstructionism, strategies to circumvent a French veto would be implemented in order to obtain a German rearmament outside NATO.",
+        "On 30 August 1954 French Parliament rejected the EDC, thus ensuring its failure and blocking a major objective of US policy towards Europe: to associate Germany militarily with the West.",
+        "Memories of the Nazi occupation were still strong, and the rearmament of Germany was feared by France too."
+      ],
+      "qa_prediction": "the EDC",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 6,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df14d0c65bf219000b3f49",
+        "56df14d0c65bf219000b3f4a",
+        "5ad572f65b96ef001a10af10",
+        "5ad572f65b96ef001a10af11",
+        "5ad572f65b96ef001a10af12",
+        "5ad572f65b96ef001a10af13"
+      ],
+      "method": "baseline",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Which two countries did not participate in the invasion?",
+      "gold_question": "Which two countries supported the invasion in Czechoslovakia?",
+      "rouge_l": 0.4706,
+      "generated_answer": "Socialist Republic of Romania, People's Republic of Albania",
+      "target_model_question": "Which two countries did not participate in the invasion?",
+      "target_model_answer": "Socialist Republic of Romania, People's Republic of Albania",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the sole joint action by the Communist armed forces?",
+          "answer": "Warsaw Pact invasion of Czechoslovakia"
+        },
+        {
+          "question": "Which two countries did not participate in the invasion?",
+          "answer": "Socialist Republic of Romania, People's Republic of Albania"
+        }
+      ],
+      "salient_sentences": [
+        "All member countries, with the exception of the Socialist Republic of Romania and the People's Republic of Albania participated in the invasion.",
+        "The multi-national Communist armed forces' sole joint action was the Warsaw Pact invasion of Czechoslovakia in August 1968."
+      ],
+      "qa_prediction": "Socialist Republic of Romania and the People's Republic of Albania",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.9412,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 6,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df14d0c65bf219000b3f49",
+        "56df14d0c65bf219000b3f4a",
+        "5ad572f65b96ef001a10af10",
+        "5ad572f65b96ef001a10af11",
+        "5ad572f65b96ef001a10af12",
+        "5ad572f65b96ef001a10af13"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Which two countries did not participate in the invasion?",
+      "gold_question": "Which two countries supported the invasion in Czechoslovakia?",
+      "rouge_l": 0.4706,
+      "generated_answer": "Socialist Republic of Romania and the People's Republic of Albania",
+      "target_model_question": "Which two countries did not participate in the invasion?",
+      "target_model_answer": "Socialist Republic of Romania and the People's Republic of Albania",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the sole joint action of the multi-national Communist armed forces?",
+          "answer": "the Warsaw Pact invasion of Czechoslovakia"
+        },
+        {
+          "question": "Which two countries did not participate in the invasion?",
+          "answer": "Socialist Republic of Romania and the People's Republic of Albania"
+        }
+      ],
+      "salient_sentences": [
+        "All member countries, with the exception of the Socialist Republic of Romania and the People's Republic of Albania participated in the invasion.",
+        "The multi-national Communist armed forces' sole joint action was the Warsaw Pact invasion of Czechoslovakia in August 1968."
+      ],
+      "qa_prediction": "Socialist Republic of Romania and the People's Republic of Albania",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 7,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df18663277331400b4d981",
+        "56df18663277331400b4d982",
+        "56df18663277331400b4d983",
+        "5ad573a55b96ef001a10af18",
+        "5ad573a55b96ef001a10af19",
+        "5ad573a55b96ef001a10af1a",
+        "5ad573a55b96ef001a10af1b"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "When was the Warsaw Pact officially disbanded?",
+      "gold_question": "In which country was the Warsaw Pact disbanded in 1981?",
+      "rouge_l": 0.4706,
+      "generated_answer": "25 February 1991",
+      "target_model_question": "When was the Warsaw Pact officially disbanded?",
+      "target_model_answer": "25 February 1991",
+      "all_generated_questions_for_example": [
+        {
+          "question": "When was the Warsaw Pact officially disbanded?",
+          "answer": "25 February 1991"
+        },
+        {
+          "question": "Who ended the Warsaw Treaty Organization?",
+          "answer": "V\u00e1clav Havel"
+        }
+      ],
+      "salient_sentences": [
+        "On 1 July 1991, in Prague, the Czechoslovak President V\u00e1clav Havel formally ended the 1955 Warsaw Treaty Organization of Friendship, Cooperation, and Mutual Assistance and so disestablished the Warsaw Treaty after 36 years of military alliance with the USSR.",
+        "On 25 February 1991, the Warsaw Pact was declared disbanded at a meeting of defense and foreign ministers from remaining Pact countries meeting in Hungary.",
+        "The USSR disestablished itself in December 1991."
+      ],
+      "qa_prediction": "25 February 1991",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 5,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df12853277331400b4d94f",
+        "56df12853277331400b4d950",
+        "5ad570205b96ef001a10aecc",
+        "5ad570205b96ef001a10aecd",
+        "5ad570205b96ef001a10aece",
+        "5ad570205b96ef001a10aecf"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "What was the purpose of the National People's Army?",
+      "gold_question": "What was the name of the East German armed forces?",
+      "rouge_l": 0.5263,
+      "generated_answer": "to counter the rearmament of West Germany",
+      "target_model_question": "What was the purpose of the National People's Army?",
+      "target_model_answer": "to counter the rearmament of West Germany",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What country was allowed to re-arm?",
+          "answer": "East Germany"
+        },
+        {
+          "question": "What was the purpose of the National People's Army?",
+          "answer": "to counter the rearmament of West Germany"
+        }
+      ],
+      "salient_sentences": [
+        "One of the founding members, East Germany was allowed to re-arm by the Soviet Union and the National People's Army was established as the armed forces of the country to counter the rearmament of West Germany."
+      ],
+      "qa_prediction": "to counter the rearmament of West Germany",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.25,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 0,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de8542cffd8e1900b4b9d8",
+        "56de8542cffd8e1900b4b9d9",
+        "56de8542cffd8e1900b4b9da",
+        "5ad567e55b96ef001a10ae08",
+        "5ad567e55b96ef001a10ae09",
+        "5ad567e55b96ef001a10ae0a",
+        "5ad567e55b96ef001a10ae0b"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Why did the Soviet Union want to dominate the region?",
+      "gold_question": "Which ideologies did the Soviet Union aspire to lead around the globe?",
+      "rouge_l": 0.5455,
+      "generated_answer": "desire to dominate Central and Eastern Europe",
+      "target_model_question": "Why did the Soviet Union want to dominate the region?",
+      "target_model_answer": "desire to dominate Central and Eastern Europe",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What was the main goal of the Warsaw Pact's formation?",
+          "answer": "dominate Central and Eastern Europe"
+        },
+        {
+          "question": "Why did the Soviet Union want to dominate the region?",
+          "answer": "desire to dominate Central and Eastern Europe"
+        }
+      ],
+      "salient_sentences": [
+        "The strategy behind the formation of the Warsaw Pact was driven by the desire of the Soviet Union to dominate Central and Eastern Europe."
+      ],
+      "qa_prediction": "ideological and geostrategic reasons",
+      "qa_em": 0.0,
+      "qa_consistency_f1": 0.1818,
+      "answer_recovery_f1": 0.2857,
+      "reasons": [
+        "QA model answer does not match the generated answer well",
+        "QA model answer is weakly aligned with the gold answers",
+        "Generated question likely targets a different fact than the gold question"
+      ]
+    },
+    {
+      "example_index": 1,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df03473277331400b4d8ab",
+        "56df03473277331400b4d8ac",
+        "5ad56b055b96ef001a10ae52",
+        "5ad56b055b96ef001a10ae53",
+        "5ad56b055b96ef001a10ae54",
+        "5ad56b055b96ef001a10ae55"
+      ],
+      "method": "salience",
+      "question_index": 1,
+      "generated_question_count": 2,
+      "candidate_question": "Who refused the Soviet proposals for German reunification?",
+      "gold_question": "Who was the Soviet minister who proposed German reunification?",
+      "rouge_l": 0.5882,
+      "generated_answer": "Dulles (USA), Eden (UK) and Bidault (France)",
+      "target_model_question": "Who refused the Soviet proposals for German reunification?",
+      "target_model_answer": "Dulles (USA), Eden (UK) and Bidault (France)",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What were the conditions for German reunification proposed by Molotov?",
+          "answer": "under conditions of withdrawal of the four powers armies and German neutrality"
+        },
+        {
+          "question": "Who refused the Soviet proposals for German reunification?",
+          "answer": "Dulles (USA), Eden (UK) and Bidault (France)"
+        }
+      ],
+      "salient_sentences": [
+        "Proposals for the reunification of Germany were nothing new: earlier on 20 March 1952, talks about a German reunification, initiated by the socalled 'Stalin Note', ended after the United Kingdom, France, and the United States insisted that a unified Germany should not be neutral and should be free to join the European Defence Community and rearm.",
+        "Soviet foreign minister Molotov made proposals to have Germany reunified and elections for a pan-German government, under conditions of withdrawal of the four powers armies and German neutrality, but all were refused by the other foreign ministers, Dulles (USA), Eden (UK) and Bidault (France).",
+        "James Dunn (USA), who met in Paris with Eden, Adenauer and Robert Schuman (France), affirmed that \"the object should be to avoid discussion with the Russians and to press on the European Defense Community\"."
+      ],
+      "qa_prediction": "Dulles (USA), Eden (UK) and Bidault (France).",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 9,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56de936b4396321400ee2a30",
+        "56de936b4396321400ee2a31",
+        "5acd0a0107355d001abf3200",
+        "5acd0a0107355d001abf3201",
+        "5acd0a0107355d001abf3202",
+        "5acd0a0107355d001abf3203"
+      ],
+      "method": "salience",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "What term is preferred over materialism by some?",
+      "gold_question": "What term is not preferred over materialism? ",
+      "rouge_l": 0.6667,
+      "generated_answer": "physicalism",
+      "target_model_question": "What term is preferred over materialism by some?",
+      "target_model_answer": "physicalism",
+      "all_generated_questions_for_example": [
+        {
+          "question": "What term is preferred over materialism by some?",
+          "answer": "physicalism"
+        },
+        {
+          "question": "What does philosophical physicalism incorporate beyond ordinary matter?",
+          "answer": "spacetime, physical energies and forces, dark matter"
+        }
+      ],
+      "salient_sentences": [
+        "Philosophical physicalism has evolved from materialism with the discoveries of the physical sciences to incorporate more sophisticated notions of physicality than mere ordinary matter, such as: spacetime, physical energies and forces, dark matter, and so on."
+      ],
+      "qa_prediction": "physicalism",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    },
+    {
+      "example_index": 5,
+      "original_passage_index": null,
+      "title": "",
+      "paragraph_index": 0,
+      "qa_ids": [
+        "56df12853277331400b4d94f",
+        "56df12853277331400b4d950",
+        "5ad570205b96ef001a10aecc",
+        "5ad570205b96ef001a10aecd",
+        "5ad570205b96ef001a10aece",
+        "5ad570205b96ef001a10aecf"
+      ],
+      "method": "baseline",
+      "question_index": 0,
+      "generated_question_count": 2,
+      "candidate_question": "Who allowed East Germany to re-arm?",
+      "gold_question": "Who allowed West Germany to re-arm?",
+      "rouge_l": 0.8333,
+      "generated_answer": "the Soviet Union",
+      "target_model_question": "Who allowed East Germany to re-arm?",
+      "target_model_answer": "the Soviet Union",
+      "all_generated_questions_for_example": [
+        {
+          "question": "Who allowed East Germany to re-arm?",
+          "answer": "the Soviet Union"
+        },
+        {
+          "question": "What was created to counter West Germany's rearmament?",
+          "answer": "National People's Army"
+        }
+      ],
+      "salient_sentences": [
+        "One of the founding members, East Germany was allowed to re-arm by the Soviet Union and the National People's Army was established as the armed forces of the country to counter the rearmament of West Germany."
+      ],
+      "qa_prediction": "the Soviet Union",
+      "qa_em": 1.0,
+      "qa_consistency_f1": 1.0,
+      "answer_recovery_f1": 0.0,
+      "reasons": [
+        "QA model answer is weakly aligned with the gold answers"
+      ]
+    }
+  ]
+}

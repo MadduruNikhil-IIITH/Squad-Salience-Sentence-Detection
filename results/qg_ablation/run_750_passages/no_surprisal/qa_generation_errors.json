@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "source_output": "results\\qg_ablation\\run_750_passages\\no_surprisal\\qg_pipeline.json",
+    "num_examples_processed": 750,
+    "num_generation_errors": 0,
+    "created_utc": "2026-04-04T13:26:29.375828Z"
+  },
+  "errors": []
+}

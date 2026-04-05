@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "pipeline_json": "results\\qg\\qg_pipeline_train_after2000_500_qwen.json",
+    "source_path": "data\\train.json",
+    "qa_model": "deepset/roberta-base-squad2",
+    "qa_batch_size": 16,
+    "bertscore_model": "roberta-base",
+    "evaluated_examples": 500,
+    "efficiency_notes": [
+      "QA model is loaded once and reused.",
+      "QA consistency is computed in batches.",
+      "BERTScore is computed in one pass per method.",
+      "Gold lookup map is pre-built for O(1) QA-id access."
+    ]
+  },
+  "metrics": {
+    "salience": {
+      "count": 1000,
+      "rouge_l": 0.3555,
+      "bertscore_f1": 0.9056,
+      "qa_em": 0.27,
+      "qa_f1": 0.4023
+    },
+    "baseline": {
+      "count": 1000,
+      "rouge_l": 0.3531,
+      "bertscore_f1": 0.9069,
+      "qa_em": 0.262,
+      "qa_f1": 0.3962
+    }
+  }
+}

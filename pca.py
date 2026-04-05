@@ -1,5 +1,7 @@
 import json
 import os
+import re
+from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -8,9 +10,16 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, f1_score
 
+
+def _extract_run_key(run_folder: str) -> str:
+    match = re.search(r"run_(\d+)_passages", Path(run_folder).as_posix())
+    if not match:
+        raise ValueError(f"Could not extract run key from path: {run_folder}")
+    return match.group(1)
+
 def run_pca_analysis(run_folder):
-    
-    key = run_folder.split("_")[1]
+
+    key = _extract_run_key(run_folder)
     pca_run_folder = f"results/pca/run_{key}"
     os.makedirs(pca_run_folder, exist_ok=True)
     
@@ -25,6 +34,9 @@ def run_pca_analysis(run_folder):
         data = json.load(f)
 
     run_data = data["runs"].get(key, None)
+    if run_data is None:
+        print(f"No run statistics found for key={key} in {STATS_FILE}.")
+        return
     
     print(f"\nRunning PCA analysis on: {run_folder}")
     df = pd.read_csv(f"{run_folder}/sentences_with_features.csv")
@@ -109,13 +121,15 @@ def run_pca_analysis(run_folder):
     print(f"Only {n_components_90} components needed for 90% variance!")
     print(f"Classification on 90% variance components: Acc {acc_pca:.4f} | F1 {f1_pca:.4f}")
     print(f"All results saved in: {run_folder}/")
-    
-run_pca_analysis("results/run_100_passages")
-print("-"*50)
-run_pca_analysis("results/run_250_passages")
-print("-"*50)
-run_pca_analysis("results/run_500_passages")
-print("-"*50)
-run_pca_analysis("results/run_1000_passages")
-print("-"*50)
-run_pca_analysis("results/run_2000_passages")
+
+
+if __name__ == "__main__":
+    run_pca_analysis("results/run_100_passages")
+    print("-" * 50)
+    run_pca_analysis("results/run_250_passages")
+    print("-" * 50)
+    run_pca_analysis("results/run_500_passages")
+    print("-" * 50)
+    run_pca_analysis("results/run_1000_passages")
+    print("-" * 50)
+    run_pca_analysis("results/run_2000_passages")

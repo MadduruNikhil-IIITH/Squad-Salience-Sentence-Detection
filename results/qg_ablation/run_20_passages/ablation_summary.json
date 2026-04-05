@@ -1,0 +1,42 @@
+{
+  "seed": 2026,
+  "sample_size": 20,
+  "sample_indices": [
+    0,
+    2,
+    3,
+    6,
+    7,
+    9,
+    14,
+    15,
+    19,
+    20,
+    21,
+    26,
+    28,
+    29,
+    31,
+    32,
+    33,
+    34,
+    37,
+    39
+  ],
+  "results": {
+    "top10_features": {
+      "count": 40,
+      "rouge_l": 0.3208,
+      "bertscore_f1": 0.9025,
+      "qa_em": 0.675,
+      "qa_consistency_f1": 0.8451
+    },
+    "no_surprisal": {
+      "count": 40,
+      "rouge_l": 0.3403,
+      "bertscore_f1": 0.8971,
+      "qa_em": 0.6,
+      "qa_consistency_f1": 0.8012
+    }
+  }
+}

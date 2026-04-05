@@ -1,0 +1,309 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Use a modern theme if available; keep a vivid fallback.
+\IfFileExists{beamerthememetropolis.sty}{
+  \usetheme[numbering=fraction,progressbar=foot]{metropolis}
+}{
+  \usetheme{Berlin}
+  \usecolortheme{dolphin}
+}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+
+% Vibrant custom palette
+\definecolor{VividBlue}{RGB}{0,102,255}
+\definecolor{VividOrange}{RGB}{255,111,0}
+\definecolor{VividTeal}{RGB}{0,170,160}
+\definecolor{DeepInk}{RGB}{20,28,44}
+
+% Readability and visual consistency tweaks.
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{6pt}
+\setbeamertemplate{itemize item}{\small\textbullet}
+\setbeamertemplate{itemize subitem}{\scriptsize\textbullet}
+\setbeamercolor{normal text}{fg=DeepInk,bg=white}
+\setbeamercolor{title}{fg=VividBlue}
+\setbeamercolor{frametitle}{fg=white,bg=VividBlue}
+\setbeamercolor{alerted text}{fg=VividOrange}
+\setbeamercolor{structure}{fg=VividBlue}
+\setbeamercolor{progress bar}{fg=VividOrange,bg=VividBlue!20}
+\setbeamercolor{itemize item}{fg=VividOrange}
+\setbeamercolor{itemize subitem}{fg=VividTeal}
+\setbeamercolor{block title}{fg=white,bg=VividBlue}
+\setbeamercolor{block body}{fg=DeepInk,bg=VividBlue!6}
+\setbeamerfont{frametitle}{series=\bfseries,size=\large}
+\setbeamerfont{title}{series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+% Uncomment if you want speaker notes on a second screen:
+% \usepackage{pgfpages}
+% \setbeameroption{show notes on second screen=right}
+
+\title{Salience-Guided Question Generation:\\Feature Ablations, Methodological Insights, and Issue Analysis}
+\author{Research Group Update}
+\institute{NLP/ML Research Group}
+\date{April 2026}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\note{Good morning everyone. This talk focuses on how salience guidance changes what questions are generated, what our ablations reveal about feature design, and what issue analysis teaches us about grounding versus lexical overlap. The emphasis is methodological nuance rather than overclaiming wins.}
+\end{frame}
+
+\begin{frame}{Agenda}
+\begin{itemize}
+  \item Problem framing and SQuAD context
+  \item Pipeline and balanced prompt design
+  \item Feature engineering and ablation setup
+  \item Quantitative results and trade-offs
+  \item Issue analysis from QA generation logs
+  \item Limitations, future work, and discussion
+\end{itemize}
+\note{The throughline is: salience guidance is promising, but metrics must be interpreted carefully. A lower ROUGE-L can coexist with better grounding behavior depending on what we optimize for.}
+\end{frame}
+
+\begin{frame}{Problem \& Motivation}
+\begin{itemize}
+  \item SQuAD 1.1 has 100,000+ crowd-sourced QA pairs over 500+ Wikipedia articles.
+  \item Answers are extractive spans; passages usually have 3--5 gold questions.
+  \item In our setup: process train split after skipping first 2000 passages; generate 2 questions per passage.
+  \item Standard QG often prioritizes fluency/diversity but can drift from key facts.
+  \item Goal: use sentence salience to keep generation grounded in high-value passage content.
+\end{itemize}
+\note{The core motivation is to improve factual focus. We are not trying to mimic gold wording only; we are trying to ask answerable questions from salient evidence in the passage.}
+\end{frame}
+
+\begin{frame}{Proposed Approach}
+\small
+\begin{enumerate}
+  \item Sentence-level feature extraction.
+  \item Salience scoring via classifier.
+  \item Select top-k salient sentences.
+  \item Balanced prompt conditions generation on salient evidence.
+  \item Generate 2 questions per passage.
+  \item Evaluate with ROUGE-L, BERTScore, QA-EM, QA-Consistency-F1, Answer-Recovery-F1.
+\end{enumerate}
+
+\vspace{0.4em}
+\textbf{Design principle:} soft grounding, not hard constraints.
+\begin{itemize}
+  \item Keep the model flexible and natural.
+  \item Bias toward salient content for better answerability and consistency.
+\end{itemize}
+\note{Important nuance: we enforce guidance through prompt design rather than rule-based filtering at decoding time. This avoids brittle outputs while preserving control.}
+\end{frame}
+
+\begin{frame}{Salience Feature Engineering}
+\small
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Feature family} & \textbf{Rationale} \\
+\midrule
+Linguistic (surface, position, POS, lexical density, discourse markers) & Interpretable, cheap, structurally strong priors for answer-bearing sentences. \\
+GPT-2 surprisal statistics (mean/sum/std/var/min/max) & Captures local uncertainty under causal LM; may mark information-rich regions. \\
+BERT surprisal statistics (mean/sum/std/var/min/max) & Contextual uncertainty with bidirectional context; complementary signal. \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.5em}
+\textbf{Nuance:} surprisal adds signal, but linguistic features remain surprisingly competitive.
+\note{A key methodological point is not to assume neural uncertainty always dominates. In our runs, linguistic structure is a very strong baseline and sometimes better on overlap-oriented metrics.}
+\end{frame}
+
+\begin{frame}{Ablation Study Design (750 Passages)}
+\small
+\textbf{Controlled setup}
+\begin{itemize}
+  \item Same balanced prompt, same sample size (750 passages), same generation count (1500 questions).
+  \item Same seed and evaluation pipeline for comparability.
+\end{itemize}
+
+\textbf{Conditions}
+\begin{itemize}
+  \item Full Features: linguistic + GPT-2 surprisal + BERT surprisal
+  \item No Surprisal: linguistic-only
+  \item Top-10 Features: compact high-signal subset
+\end{itemize}
+
+\textbf{Why this design?}
+\begin{itemize}
+  \item Isolate surprisal contribution.
+  \item Test whether compact features preserve performance.
+  \item Quantify grounding-overlap trade-offs under identical prompting.
+\end{itemize}
+\note{This is a strict methodological comparison: prompt and model are fixed, feature set is the intervention. That makes interpretations cleaner.}
+\end{frame}
+
+\begin{frame}{Quantitative Results (Salience Method)}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Metric} & \textbf{Full} & \textbf{No Surprisal} & \textbf{Top-10} \\
+\midrule
+ROUGE-L & 0.3488 & 0.3600 & 0.3626 \\
+BERTScore & 0.9052 & 0.9077 & 0.9076 \\
+QA-EM & 0.5367 & 0.5127 & 0.5160 \\
+QA-Consistency-F1 & 0.7752 & 0.7644 & 0.7718 \\
+Answer-Recovery-F1 & 0.4020 & 0.4302 & 0.4246 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Main read:}
+\begin{itemize}
+  \item Full features lead on QA consistency and EM.
+  \item No surprisal and Top-10 lead on lexical overlap and answer recovery.
+\end{itemize}
+\note{This is the core trade-off slide. Full features appear more consistency-oriented, while no-surprisal variants are more overlap-friendly. Neither is globally best across all objectives.}
+\end{frame}
+
+\begin{frame}{Baseline Context (Per Run)}
+\small
+\begin{tabular}{lccc}
+\toprule
+\textbf{Metric} & \textbf{Full Run Baseline} & \textbf{No Surprisal Baseline} & \textbf{Top-10 Baseline} \\
+\midrule
+ROUGE-L & 0.3504 & 0.3687 & 0.3710 \\
+BERTScore & 0.9061 & 0.9094 & 0.9096 \\
+QA-EM & 0.5687 & 0.5780 & 0.5613 \\
+QA-Consistency-F1 & 0.7670 & 0.7776 & 0.7653 \\
+Answer-Recovery-F1 & 0.4148 & 0.4537 & 0.4472 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.5em}
+\textbf{Interpretation caution:}
+\begin{itemize}
+  \item Baseline remains strong on overlap metrics.
+  \item Salience is not intended to maximize lexical match; it prioritizes grounded targeting.
+\end{itemize}
+\note{A balanced interpretation is essential: we should not declare blanket superiority. The right method depends on whether the task values gold-style overlap or salience-grounded consistency.}
+\end{frame}
+
+\begin{frame}{In-Depth Issue Analysis}
+\small
+\textbf{Issue volume (about 1500 generated questions per condition):}
+\begin{itemize}
+  \item Full features run: \(\sim 2302\) issue flags
+  \item No surprisal run: \(\sim 2251\) issue flags
+  \item Top-10 run: \(\sim 2208\) issue flags
+\end{itemize}
+
+\textbf{Common issue reasons in \texttt{qa\_generation\_issues.json}:}
+\begin{itemize}
+  \item Low lexical overlap with closest gold question
+  \item QA model answer mismatch
+  \item Weak alignment with gold answers
+  \item Generated question targets a different fact than gold
+\end{itemize}
+
+\textbf{Key nuance:} many flagged cases are valid alternate facts from salient sentences, not true generation failures.
+\note{This is where we avoid misinterpretation. High issue counts are partly expected under salience-guided generation because reference alignment is narrow while passage-valid question space is broad.}
+\end{frame}
+
+\begin{frame}{What the Issue Patterns Reveal}
+\small
+\begin{itemize}
+  \item Salience guidance often generates plausible questions anchored to different passage facts than the gold QA pair.
+  \item This can lower ROUGE-L while preserving or improving consistency-oriented metrics.
+  \item QA extraction mismatch is partly an evaluator bottleneck: generated questions may be valid but out-of-distribution for the QA model.
+\end{itemize}
+
+\vspace{0.4em}
+\textbf{Takeaway:} metric disagreement here is informative, not noise.
+\begin{itemize}
+  \item Higher grounding can come with lower lexical overlap.
+  \item Better overlap does not always mean better salience alignment.
+\end{itemize}
+\note{This slide reframes the results philosophically: we are evaluating multiple objectives. For salience-guided QG, consistency and answerability can be more relevant than wording overlap.}
+\end{frame}
+
+\begin{frame}{Key Insights \& Nuances}
+\small
+\begin{enumerate}
+  \item Full features are strongest for consistency-focused behavior.
+  \item No-surprisal and Top-10 are competitive and simpler.
+  \item The choice of metric encodes the research objective.
+  \item Issue logs show many "different-but-valid" generations.
+  \item Overall evidence supports salience guidance as promising, not definitive.
+\end{enumerate}
+
+\vspace{0.4em}
+\textbf{Methodological implication:}
+\begin{itemize}
+  \item Evaluate with a metric portfolio, not a single overlap score.
+\end{itemize}
+\note{This slide should feel balanced: there is signal, there are trade-offs, and we should be explicit about objective alignment before selecting a best variant.}
+\end{frame}
+
+\begin{frame}{Limitations}
+\small
+\begin{itemize}
+  \item Single prompt family and model configuration in this ablation set.
+  \item Dependence on one QA evaluator introduces evaluator bias.
+  \item Automatic metrics cannot fully capture pedagogical value.
+  \item Issue thresholds are heuristic and can over-flag valid outputs.
+  \item Current salience is sentence-level; discourse-level salience is not modeled yet.
+\end{itemize}
+\note{Important to state clearly: these are promising early findings, not a final benchmark leader claim.}
+\end{frame}
+
+\begin{frame}{Future Work}
+\small
+\textbf{Primary extension: RST-based discourse salience}
+\begin{itemize}
+  \item Incorporate Rhetorical Structure Theory (RST) features.
+  \item Model discourse relations and nucleus/satellite roles.
+  \item Combine sentence-level and discourse-level salience for better targeting.
+\end{itemize}
+
+\textbf{Additional steps}
+\begin{itemize}
+  \item Human evaluation of grounded usefulness and factuality.
+  \item Multi-QA evaluator setup for robust answer consistency estimates.
+  \item Larger-scale runs and calibration analysis.
+\end{itemize}
+\note{RST is the most natural methodological next step because current issues show sentence-level salience is not always enough to capture discourse intent.}
+\end{frame}
+
+\begin{frame}{Conclusion \& Open Questions}
+\small
+\textbf{Conclusion}
+\begin{itemize}
+  \item Salience-guided QG is a viable framework with clear trade-offs.
+  \item Full features favor consistency; reduced sets favor overlap/recovery.
+  \item Issue analysis supports the grounding-versus-overlap interpretation.
+\end{itemize}
+
+\textbf{Open questions}
+\begin{itemize}
+  \item Which objective matters most for your downstream use case?
+  \item How should we weight consistency vs lexical overlap in model selection?
+  \item Does RST reduce different-fact drift while preserving diversity?
+\end{itemize}
+\note{Invite discussion around objective alignment. The right system is context-dependent, not universally best by one metric.}
+\end{frame}
+
+\begin{frame}{Thank You / Q\&A}
+\centering
+\Large Thank you.
+
+\vspace{1em}
+\normalsize
+Questions, feedback, and suggestions for the next iteration are very welcome.
+\note{End with confidence but keep the framing honest: this is a strong methodological baseline with clear, interpretable next steps.}
+\end{frame}
+
+\end{document}

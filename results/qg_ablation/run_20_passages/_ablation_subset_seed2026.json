@@ -1,0 +1,616 @@
+{
+  "metadata": {
+    "seed": 2026,
+    "source": "train",
+    "skip_first_passages": 2000,
+    "sample_indices": [
+      0,
+      2,
+      3,
+      6,
+      7,
+      9,
+      14,
+      15,
+      19,
+      20,
+      21,
+      26,
+      28,
+      29,
+      31,
+      32,
+      33,
+      34,
+      37,
+      39
+    ]
+  },
+  "data": [
+    {
+      "paragraphs": [
+        {
+          "context": "The strategy behind the formation of the Warsaw Pact was driven by the desire of the Soviet Union to dominate Central and Eastern Europe. This policy was driven by ideological and geostrategic reasons. Ideologically, the Soviet Union arrogated the right to define socialism and communism and act as the leader of the global socialist movement. A corollary to this idea was the necessity of intervention if a country appeared to be violating core socialist ideas and Communist Party functions, which was explicitly stated in the Brezhnev Doctrine. Geostrategic principles also drove the Soviet Union to prevent invasion of its territory by Western European powers.",
+          "qas": [
+            {
+              "id": "56de8542cffd8e1900b4b9d8"
+            },
+            {
+              "id": "56de8542cffd8e1900b4b9d9"
+            },
+            {
+              "id": "56de8542cffd8e1900b4b9da"
+            },
+            {
+              "id": "5ad567e55b96ef001a10ae08"
+            },
+            {
+              "id": "5ad567e55b96ef001a10ae09"
+            },
+            {
+              "id": "5ad567e55b96ef001a10ae0a"
+            },
+            {
+              "id": "5ad567e55b96ef001a10ae0b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "The Soviet request to join NATO arose in the aftermath of the Berlin Conference of January\u2013February 1954. Soviet foreign minister Molotov made proposals to have Germany reunified and elections for a pan-German government, under conditions of withdrawal of the four powers armies and German neutrality, but all were refused by the other foreign ministers, Dulles (USA), Eden (UK) and Bidault (France). Proposals for the reunification of Germany were nothing new: earlier on 20 March 1952, talks about a German reunification, initiated by the socalled 'Stalin Note', ended after the United Kingdom, France, and the United States insisted that a unified Germany should not be neutral and should be free to join the European Defence Community and rearm. James Dunn (USA), who met in Paris with Eden, Adenauer and Robert Schuman (France), affirmed that \"the object should be to avoid discussion with the Russians and to press on the European Defense Community\". According to John Gaddis \"there was little inclination in Western capitals to explore this offer\" from USSR. While historian Rolf Steininger asserts that Adenauer's conviction that \u201cneutralization means sovietization\u201d was the main factor in the rejection of the soviet proposals, Adenauer also feared that unification might have resulted in the end of the CDU's dominance in the Bundestag.",
+          "qas": [
+            {
+              "id": "56df03473277331400b4d8ab"
+            },
+            {
+              "id": "56df03473277331400b4d8ac"
+            },
+            {
+              "id": "5ad56b055b96ef001a10ae52"
+            },
+            {
+              "id": "5ad56b055b96ef001a10ae53"
+            },
+            {
+              "id": "5ad56b055b96ef001a10ae54"
+            },
+            {
+              "id": "5ad56b055b96ef001a10ae55"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "One month later, the proposed European Treaty was rejected not only by supporters of the EDC but also by western opponents of the European Defense Community (like French Gaullist leader Palewski) who perceived it as \"unacceptable in its present form because it excludes the USA from participation in the collective security system in Europe\". The Soviets then decided to make a new proposal to the governments of the USA, UK and France stating to accept the participation of the USA in the proposed General European Agreement. And considering that another argument deployed against the Soviet proposal was that it was perceived by western powers as \"directed against the North Atlantic Pact and its liquidation\", the Soviets decided to declare their \"readiness to examine jointly with other interested parties the question of the participation of the USSR in the North Atlantic bloc\", specifying that \"the admittance of the USA into the General European Agreement should not be conditional on the three western powers agreeing to the USSR joining the North Atlantic Pact\".",
+          "qas": [
+            {
+              "id": "56df047bc65bf219000b3edf"
+            },
+            {
+              "id": "5ad56c6d5b96ef001a10ae74"
+            },
+            {
+              "id": "5ad56c6d5b96ef001a10ae75"
+            },
+            {
+              "id": "5ad56c6d5b96ef001a10ae76"
+            },
+            {
+              "id": "5ad56c6d5b96ef001a10ae77"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Memories of the Nazi occupation were still strong, and the rearmament of Germany was feared by France too. On 30 August 1954 French Parliament rejected the EDC, thus ensuring its failure and blocking a major objective of US policy towards Europe: to associate Germany militarily with the West. The US Department of State started to elaborate alternatives: Germany would be invited to join NATO or, in the case of French obstructionism, strategies to circumvent a French veto would be implemented in order to obtain a German rearmament outside NATO.",
+          "qas": [
+            {
+              "id": "56df114cc65bf219000b3f1d"
+            },
+            {
+              "id": "5ad56e595b96ef001a10ae96"
+            },
+            {
+              "id": "5ad56e595b96ef001a10ae97"
+            },
+            {
+              "id": "5ad56e595b96ef001a10ae98"
+            },
+            {
+              "id": "5ad56e595b96ef001a10ae99"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "On 23 October 1954 \u2013 only nine years after Allies (UK, USA and USSR) defeated Nazi Germany ending World War II in Europe \u2013 the admission of the Federal Republic of Germany to the North Atlantic Pact was finally decided. The incorporation of West Germany into the organization on 9 May 1955 was described as \"a decisive turning point in the history of our continent\" by Halvard Lange, Foreign Affairs Minister of Norway at the time. In November 1954, the USSR requested a new European Security Treaty, in order to make a final attempt to not have a remilitarized West Germany potentially opposed to the Soviet Union, with no success.",
+          "qas": [
+            {
+              "id": "56df11aac65bf219000b3f1f"
+            },
+            {
+              "id": "56df11aac65bf219000b3f20"
+            },
+            {
+              "id": "5ad56f1b5b96ef001a10aeb0"
+            },
+            {
+              "id": "5ad56f1b5b96ef001a10aeb1"
+            },
+            {
+              "id": "5ad56f1b5b96ef001a10aeb2"
+            },
+            {
+              "id": "5ad56f1b5b96ef001a10aeb3"
+            },
+            {
+              "id": "5ad56f1b5b96ef001a10aeb4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "One of the founding members, East Germany was allowed to re-arm by the Soviet Union and the National People's Army was established as the armed forces of the country to counter the rearmament of West Germany.",
+          "qas": [
+            {
+              "id": "56df12853277331400b4d94f"
+            },
+            {
+              "id": "56df12853277331400b4d950"
+            },
+            {
+              "id": "5ad570205b96ef001a10aecc"
+            },
+            {
+              "id": "5ad570205b96ef001a10aecd"
+            },
+            {
+              "id": "5ad570205b96ef001a10aece"
+            },
+            {
+              "id": "5ad570205b96ef001a10aecf"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "The multi-national Communist armed forces' sole joint action was the Warsaw Pact invasion of Czechoslovakia in August 1968. All member countries, with the exception of the Socialist Republic of Romania and the People's Republic of Albania participated in the invasion.",
+          "qas": [
+            {
+              "id": "56df14d0c65bf219000b3f49"
+            },
+            {
+              "id": "56df14d0c65bf219000b3f4a"
+            },
+            {
+              "id": "5ad572f65b96ef001a10af10"
+            },
+            {
+              "id": "5ad572f65b96ef001a10af11"
+            },
+            {
+              "id": "5ad572f65b96ef001a10af12"
+            },
+            {
+              "id": "5ad572f65b96ef001a10af13"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "On 25 February 1991, the Warsaw Pact was declared disbanded at a meeting of defense and foreign ministers from remaining Pact countries meeting in Hungary. On 1 July 1991, in Prague, the Czechoslovak President V\u00e1clav Havel formally ended the 1955 Warsaw Treaty Organization of Friendship, Cooperation, and Mutual Assistance and so disestablished the Warsaw Treaty after 36 years of military alliance with the USSR. In fact, the treaty was de facto disbanded in December 1989 during the violent revolution in Romania, which toppled the communist government, without military intervention form other member states. The USSR disestablished itself in December 1991.",
+          "qas": [
+            {
+              "id": "56df18663277331400b4d981"
+            },
+            {
+              "id": "56df18663277331400b4d982"
+            },
+            {
+              "id": "56df18663277331400b4d983"
+            },
+            {
+              "id": "5ad573a55b96ef001a10af18"
+            },
+            {
+              "id": "5ad573a55b96ef001a10af19"
+            },
+            {
+              "id": "5ad573a55b96ef001a10af1a"
+            },
+            {
+              "id": "5ad573a55b96ef001a10af1b"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Materialism is a form of philosophical monism which holds that matter is the fundamental substance in nature, and that all phenomena, including mental phenomena and consciousness, are identical with material interactions.",
+          "qas": [
+            {
+              "id": "56de92c1cffd8e1900b4b9fc"
+            },
+            {
+              "id": "56de92c1cffd8e1900b4b9fd"
+            },
+            {
+              "id": "5acd09a507355d001abf31fa"
+            },
+            {
+              "id": "5acd09a507355d001abf31fb"
+            },
+            {
+              "id": "5acd09a507355d001abf31fc"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Materialism is closely related to physicalism, the view that all that exists is ultimately physical. Philosophical physicalism has evolved from materialism with the discoveries of the physical sciences to incorporate more sophisticated notions of physicality than mere ordinary matter, such as: spacetime, physical energies and forces, dark matter, and so on. Thus the term \"physicalism\" is preferred over \"materialism\" by some, while others use the terms as if they are synonymous.",
+          "qas": [
+            {
+              "id": "56de936b4396321400ee2a30"
+            },
+            {
+              "id": "56de936b4396321400ee2a31"
+            },
+            {
+              "id": "5acd0a0107355d001abf3200"
+            },
+            {
+              "id": "5acd0a0107355d001abf3201"
+            },
+            {
+              "id": "5acd0a0107355d001abf3202"
+            },
+            {
+              "id": "5acd0a0107355d001abf3203"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Materialism belongs to the class of monist ontology. As such, it is different from ontological theories based on dualism or pluralism. For singular explanations of the phenomenal reality, materialism would be in contrast to idealism, neutral monism, and spiritualism.",
+          "qas": [
+            {
+              "id": "56de94434396321400ee2a3b"
+            },
+            {
+              "id": "5acd0a8407355d001abf3208"
+            },
+            {
+              "id": "5acd0a8407355d001abf3209"
+            },
+            {
+              "id": "5acd0a8407355d001abf320a"
+            },
+            {
+              "id": "5acd0a8407355d001abf320b"
+            },
+            {
+              "id": "5acd0a8407355d001abf320c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "In Ancient Indian philosophy, materialism developed around 600 BC with the works of Ajita Kesakambali, Payasi, Kanada, and the proponents of the C\u0101rv\u0101ka school of philosophy. Kanada became one of the early proponents of atomism. The Nyaya\u2013Vaisesika school (600 BC - 100 BC) developed one of the earliest forms of atomism, though their proofs of God and their positing that the consciousness was not material precludes labelling them as materialists. Buddhist atomism and the Jaina school continued the atomic tradition.",
+          "qas": [
+            {
+              "id": "56de9b07cffd8e1900b4ba2b"
+            },
+            {
+              "id": "56de9b07cffd8e1900b4ba2c"
+            },
+            {
+              "id": "56de9b07cffd8e1900b4ba2d"
+            },
+            {
+              "id": "56de9b07cffd8e1900b4ba2e"
+            },
+            {
+              "id": "5acd104707355d001abf32e0"
+            },
+            {
+              "id": "5acd104707355d001abf32e1"
+            },
+            {
+              "id": "5acd104707355d001abf32e2"
+            },
+            {
+              "id": "5acd104707355d001abf32e3"
+            },
+            {
+              "id": "5acd104707355d001abf32e4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Ancient Greek philosophers like Thales, Anaxagoras (ca. 500 BC \u2013 428 BC), Epicurus and Democritus prefigure later materialists. The Latin poem De Rerum Natura by Lucretius (ca. 99 BC \u2013 ca. 55 BC) reflects the mechanistic philosophy of Democritus and Epicurus. According to this view, all that exists is matter and void, and all phenomena result from different motions and conglomerations of base material particles called \"atoms\" (literally: \"indivisibles\"). De Rerum Natura provides mechanistic explanations for phenomena such as erosion, evaporation, wind, and sound. Famous principles like \"nothing can touch body but body\" first appeared in the works of Lucretius. Democritus and Epicurus however did not hold to a monist ontology since they held to the ontological separation of matter and space i.e. space being \"another kind\" of being, indicating that the definition of \"materialism\" is wider than given scope for in this article.",
+          "qas": [
+            {
+              "id": "56dede143277331400b4d77c"
+            },
+            {
+              "id": "56dede143277331400b4d77d"
+            },
+            {
+              "id": "5acd10f207355d001abf3308"
+            },
+            {
+              "id": "5acd10f207355d001abf3309"
+            },
+            {
+              "id": "5acd10f207355d001abf330a"
+            },
+            {
+              "id": "5acd10f207355d001abf330b"
+            },
+            {
+              "id": "5acd10f207355d001abf330c"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Later Indian materialist Jayaraashi Bhatta (6th century) in his work Tattvopaplavasimha (\"The upsetting of all principles\") refuted the Nyaya Sutra epistemology. The materialistic C\u0101rv\u0101ka philosophy appears to have died out some time after 1400. When Madhavacharya compiled Sarva-dar\u015bana-samgraha (a digest of all philosophies) in the 14th century, he had no C\u0101rv\u0101ka/Lok\u0101yata text to quote from, or even refer to.",
+          "qas": [
+            {
+              "id": "56dedeeac65bf219000b3d8b"
+            },
+            {
+              "id": "56dedeeac65bf219000b3d8c"
+            },
+            {
+              "id": "56dedeeac65bf219000b3d8d"
+            },
+            {
+              "id": "56dedeeac65bf219000b3d8e"
+            },
+            {
+              "id": "5acd11c607355d001abf3330"
+            },
+            {
+              "id": "5acd11c607355d001abf3331"
+            },
+            {
+              "id": "5acd11c607355d001abf3332"
+            },
+            {
+              "id": "5acd11c607355d001abf3333"
+            },
+            {
+              "id": "5acd11c607355d001abf3334"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "The French cleric Pierre Gassendi (1592-1665) represented the materialist tradition in opposition to the attempts of Ren\u00e9 Descartes (1596-1650) to provide the natural sciences with dualist foundations. There followed the materialist and atheist abb\u00e9 Jean Meslier (1664-1729), Julien Offray de La Mettrie, the German-French Paul-Henri Thiry Baron d'Holbach (1723-1789), the Encyclopedist Denis Diderot (1713-1784), and other French Enlightenment thinkers; as well as (in England) John \"Walking\" Stewart (1747-1822), whose insistence in seeing matter as endowed with a moral dimension had a major impact on the philosophical poetry of William Wordsworth (1770-1850).",
+          "qas": [
+            {
+              "id": "56dee0713277331400b4d7a1"
+            },
+            {
+              "id": "56dee0713277331400b4d7a2"
+            },
+            {
+              "id": "56dee0713277331400b4d7a3"
+            },
+            {
+              "id": "56dee0713277331400b4d7a4"
+            },
+            {
+              "id": "56dee0713277331400b4d7a5"
+            },
+            {
+              "id": "5acd132607355d001abf3372"
+            },
+            {
+              "id": "5acd132607355d001abf3373"
+            },
+            {
+              "id": "5acd132607355d001abf3374"
+            },
+            {
+              "id": "5acd132607355d001abf3375"
+            },
+            {
+              "id": "5acd132607355d001abf3376"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Arthur Schopenhauer (1788-1860) wrote that \"...materialism is the philosophy of the subject who forgets to take account of himself\". He claimed that an observing subject can only know material objects through the mediation of the brain and its particular organization. That is, the brain itself is the \"determiner\" of how material objects will be experienced or perceived:",
+          "qas": [
+            {
+              "id": "56dee0f43277331400b4d7ab"
+            },
+            {
+              "id": "56dee0f43277331400b4d7ac"
+            },
+            {
+              "id": "5acd139a07355d001abf3386"
+            },
+            {
+              "id": "5acd139a07355d001abf3387"
+            },
+            {
+              "id": "5acd139a07355d001abf3388"
+            },
+            {
+              "id": "5acd139a07355d001abf3389"
+            },
+            {
+              "id": "5acd139a07355d001abf338a"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "The German materialist and atheist anthropologist Ludwig Feuerbach would signal a new turn in materialism through his book, The Essence of Christianity (1841), which provided a humanist account of religion as the outward projection of man's inward nature. Feuerbach's materialism would later heavily influence Karl Marx.",
+          "qas": [
+            {
+              "id": "56dee1f3c65bf219000b3dbf"
+            },
+            {
+              "id": "56dee1f3c65bf219000b3dc0"
+            },
+            {
+              "id": "56dee1f3c65bf219000b3dc1"
+            },
+            {
+              "id": "56dee1f3c65bf219000b3dc2"
+            },
+            {
+              "id": "5acd143307355d001abf339a"
+            },
+            {
+              "id": "5acd143307355d001abf339b"
+            },
+            {
+              "id": "5acd143307355d001abf339c"
+            },
+            {
+              "id": "5acd143307355d001abf339d"
+            },
+            {
+              "id": "5acd143307355d001abf339e"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Many current and recent philosophers\u2014e.g., Daniel Dennett, Willard Van Orman Quine, Donald Davidson, and Jerry Fodor\u2014operate within a broadly physicalist or materialist framework, producing rival accounts of how best to accommodate mind, including functionalism, anomalous monism, identity theory, and so on.",
+          "qas": [
+            {
+              "id": "56dee346c65bf219000b3ddf"
+            },
+            {
+              "id": "5acd14cb07355d001abf33c0"
+            },
+            {
+              "id": "5acd14cb07355d001abf33c1"
+            },
+            {
+              "id": "5acd14cb07355d001abf33c2"
+            },
+            {
+              "id": "5acd14cb07355d001abf33c3"
+            },
+            {
+              "id": "5acd14cb07355d001abf33c4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "According to the dominant cosmological model, the Lambda-CDM model, less than 5% of the universe's energy density is made up of the \"matter\" described by the Standard Model of Particle Physics, and the majority of the universe is composed of dark matter and dark energy - with little agreement amongst scientists about what these are made of.",
+          "qas": [
+            {
+              "id": "56dee82a3277331400b4d7f3"
+            },
+            {
+              "id": "56dee82a3277331400b4d7f4"
+            },
+            {
+              "id": "5acd17e107355d001abf3466"
+            },
+            {
+              "id": "5acd17e107355d001abf3467"
+            },
+            {
+              "id": "5acd17e107355d001abf3468"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "paragraphs": [
+        {
+          "context": "Some modern day physicists and science writers\u2014such as Paul Davies and John Gribbin\u2014have argued that materialism has been disproven by certain scientific findings in physics, such as quantum mechanics and chaos theory. In 1991, Gribbin and Davies released their book The Matter Myth, the first chapter of which, \"The Death of Materialism\", contained the following passage:",
+          "qas": [
+            {
+              "id": "56deea683277331400b4d80a"
+            },
+            {
+              "id": "56deea683277331400b4d80b"
+            },
+            {
+              "id": "5acd192c07355d001abf34b6"
+            },
+            {
+              "id": "5acd192c07355d001abf34b7"
+            },
+            {
+              "id": "5acd192c07355d001abf34b8"
+            },
+            {
+              "id": "5acd192c07355d001abf34b9"
+            },
+            {
+              "id": "5acd192c07355d001abf34ba"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
