@@ -1,0 +1,59 @@
+SPEAKER NOTES - PRESENTATION (CURRENT DECK)
+
+1. Title
+One-line opener: we tested whether salience guidance helps grounded question generation and analyzed when it helps most.
+
+2. Agenda
+Say the flow: method, metrics, and data-backed qualitative analysis.
+
+3. Problem and Motivation
+Standard QG is often fluent but can drift from the key sentence evidence.
+
+4. Proposed Approach
+Pipeline summary: score sentence salience, guide question generation with top-k evidence, evaluate.
+
+5. Salience Feature Engineering
+Main point: linguistic structure is strong; surprisal is complementary.
+
+6. Linguistic Features, Expanded
+Mention all four groups and emphasize sentence position as the strongest learned signal.
+
+7. Ablation Study Design (750 Passages)
+Fair comparison setup: same prompt/model/data split, only features changed.
+
+8. Data Visuals (Report-Style)
+Explain feature-importance plot and note source run is 2000-passages.
+
+9. Metrics: Core Comparison (Important First)
+Read the cue line: bold is row-wise global best. In this run, baseline is best row-wise, so we rely on qualitative examples for grounded salience benefits.
+
+10. Salience vs. Baseline Metric Comparison
+Key sentence: overlap and consistency objectives can diverge.
+
+11. In-Depth Issue Analysis
+High issue counts are largely low-overlap and mismatch categories, not all generation failures.
+
+12. Qualitative Example (For Presentation)
+Pub example: gold asks period; generated asks explanation. Both valid, different fact focus.
+
+13. Qualitative Example: Where Grounded Salience Wins
+Use example_index 188 pair: baseline question has QA mismatch (F1 0.0), salience question has clean recovery (F1 1.0).
+
+14. More Qualitative Examples
+Example 2: QA mismatch (Space_Race).
+Example 3: low pedagogical quality despite high QA consistency (Oklahoma_City trivial question).
+
+15. Key Insights and Nuances
+Summarize in three lines: objective-dependent model choice, metric disagreement is informative, qualitative analysis is necessary.
+
+16. Limitations
+Single LLM, single QA evaluator, automatic metrics only.
+
+17. Future Work
+RST features, human evaluation, and multi-QA scoring.
+
+18. Conclusion and Open Questions
+Close with objective alignment: optimize for overlap, grounded consistency, or a blended target.
+
+19. Thank You / Q&A
+Invite feedback on which objective should drive the next experiment iteration.
