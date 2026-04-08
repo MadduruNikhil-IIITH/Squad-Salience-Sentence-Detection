@@ -98,6 +98,30 @@ Soft grounding via salience guidance -- prioritize important sentences while kee
 \end{block}
 \end{frame}
 
+\begin{frame}{Sentence Raw Data: Visual Snapshot}
+\small
+\centering
+\textbf{What the raw sentence data looks like before modeling}
+
+\vspace{0.2em}
+\includegraphics[width=0.96\linewidth,height=0.68\textheight,keepaspectratio]{../results/run_2000_passages/dataset_visualizations.png}
+
+\vspace{0.2em}
+\scriptsize Raw sentences are short on average, paragraph lengths vary, and answer-bearing sentences tend to appear earlier and be slightly longer.
+\end{frame}
+
+\begin{frame}{Class Imbalance: Skewness in 2,000 Passages}
+\small
+\centering
+\textbf{Answer-bearing sentences are more frequent than non-answer sentences in the 2,000-passage set}
+
+\vspace{0.2em}
+\includegraphics[width=0.92\linewidth,height=0.62\textheight,keepaspectratio]{../results/run_2000_passages/class_imbalance_skewness.png}
+
+\vspace{0.2em}
+\scriptsize \textit{Takeaway:} The data is imbalanced, so precision/recall trade-offs matter when evaluating the salience classifier.
+\end{frame}
+
 \begin{frame}{Salience Feature Engineering}
 \small
 \begin{tabularx}{\textwidth}{@{}X|X@{}}
@@ -234,7 +258,7 @@ Answer-Recovery-F1 & 0.402 & 0.430 & 0.425 & 0.415 & \textbf{0.454} & 0.447 \\
 \small
 \textbf{Warsaw\_Pact (example\_index 3) — Seeking Specificity}
 
-\scriptsize \textbf{Gold (SQuAD question):} The UK was initially excluded from participating in which agreement?
+\scriptsize \textbf{Gold (SQuAD question):} What did the Soviets declare about the North Atlantic Pact?
 
 \vspace{0.3em}
 \begin{columns}[T,onlytextwidth]
