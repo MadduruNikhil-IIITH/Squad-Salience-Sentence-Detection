@@ -1,0 +1,6 @@
+model_name,num_features,accuracy,precision,recall,f1,auc_roc,top_5_features
+model_linguistic,14,0.6724137931034483,0.821917808219178,0.7058823529411765,0.759493670886076,0.6626185958254269,"sentence_position, lexical_density, sentence_position_norm, noun_ratio, verb_ratio"
+model_rst_only,12,0.646551724137931,0.8142857142857143,0.6705882352941176,0.7354838709677419,0.6504743833017077,"rst_depth, intra_clause_density, rst_centrality_score, rst_span_length, intra_avg_clause_depth"
+model_ling_rst,26,0.6810344827586207,0.8428571428571429,0.6941176470588235,0.7612903225806451,0.6527514231499051,"lexical_density, sentence_position, noun_ratio, rst_depth, intra_clause_density"
+model_surprisal_only,12,0.6206896551724138,0.7662337662337663,0.6941176470588235,0.7283950617283951,0.6,"bert_surprisal_std, bert_surprisal_var, gpt2_surprisal_sum, bert_surprisal_min, bert_surprisal_sum"
+model_full,38,0.6724137931034483,0.8051948051948052,0.7294117647058823,0.7654320987654321,0.6592030360531309,"bert_surprisal_std, bert_surprisal_var, gpt2_surprisal_sum, lexical_density, sentence_position"

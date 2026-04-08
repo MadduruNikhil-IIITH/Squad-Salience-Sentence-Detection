@@ -1,5 +1,5 @@
 # Core dependencies (validated from conda env: squad-salience)
-numpy==2.3.3
+numpy==1.26.4
 pandas==2.3.3
 scikit-learn==1.7.2
 nltk==3.9.2
@@ -7,9 +7,10 @@ matplotlib==3.10.7
 seaborn==0.13.2
 joblib==1.5.2
 tqdm==4.67.1
-torch==2.9.1
-torchvision==0.24.1
-torchaudio==2.9.1
+# CUDA 13.0 builds for RTX 4060 / PyTorch compatibility
+torch==2.9.1+cu130
+torchvision==0.24.1+cu130
+torchaudio==2.9.1+cu130
 transformers==4.57.3
 accelerate==1.13.0
 
@@ -20,3 +21,7 @@ evaluate==0.4.6
 
 # Quantized loading support used by LLM scripts
 bitsandbytes==0.49.2
+
+# RST (Rhetorical Structure Theory) discourse parsing
+# Requires: pip install git+https://github.com/iinemo/isanlp.git  (base isanlp)
+isanlp_rst>=3.0

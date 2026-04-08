@@ -103,26 +103,41 @@ class SalienceInferencer:
         sentences = [s.strip() for s in nltk.sent_tokenize(passage or "")]
         return [s for s in sentences if s]
 
-    def _sentence_features(self, sentence: str, idx_1_based: int, total_sentences: int) -> Dict[str, float]:
-        key = (sentence, idx_1_based, total_sentences)
+    def _sentence_features(self, sentence: str, idx_0_based: int, total_sentences: int, full_passage: str = "") -> Dict[str, float]:
+        """Extract features for a sentence, with optional RST passage context."""
+        # Update cache key to include passage hash for accuracy
+        import hashlib
+        passage_hash = hashlib.sha256(full_passage.encode()).hexdigest()[:8] if full_passage else ""
+        key = (sentence, idx_0_based + 1, total_sentences, passage_hash)  # idx_1_based for compatibility
+        
         cached = self._feature_cache.get(key)
         if cached is not None:
             return dict(cached)
 
-        features = extract_linguistic_features(sentence, idx_1_based, total_sentences, include_surprisal=not self.linguistic_only)
+        # Extract features with RST support
+        features = extract_linguistic_features(
+            sentence,
+            idx_0_based + 1,  # 1-indexed position
+            total_sentences,
+            include_surprisal=not self.linguistic_only,
+            include_rst=True,
+            full_passage=full_passage,
+            sent_index=idx_0_based
+        )
 
         # Keep explicit reuse of surprisal module for compatibility if extractor output changes.
         if not self.linguistic_only and ("gpt2_surprisal_mean" not in features or "bert_surprisal_mean" not in features):
-            features.update(get_surprisal_features(sentence))
+            surprisal_features = get_surprisal_features(sentence)
+            features.update(surprisal_features)
 
         self._feature_cache.put(key, dict(features))
         return features
 
-    def _build_feature_matrix(self, sentences: Sequence[str]) -> Tuple[pd.DataFrame, List[Dict[str, float]]]:
+    def _build_feature_matrix(self, sentences: Sequence[str], passage: str = "") -> Tuple[pd.DataFrame, List[Dict[str, float]]]:
         total = len(sentences)
         records: List[Dict[str, float]] = [
-            self._sentence_features(sentence, i, total)
-            for i, sentence in enumerate(sentences, start=1)
+            self._sentence_features(sentence, i, total, full_passage=passage)
+            for i, sentence in enumerate(sentences)
         ]
 
         X = pd.DataFrame.from_records(records)
@@ -148,7 +163,7 @@ class SalienceInferencer:
                 "threshold": self.threshold,
             }
 
-        X, feature_records = self._build_feature_matrix(sentences)
+        X, feature_records = self._build_feature_matrix(sentences, passage=passage)
         X_input = self.scaler.transform(X) if self.scaler is not None else X.values
 
         if hasattr(self.model, "predict_proba"):

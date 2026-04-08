@@ -90,7 +90,7 @@ def run_ablation_study(
     threshold: float = 0.55,
     top_k: int = 3,
     num_questions: int = 2,
-    qg_model: str = "Qwen/Qwen2.5-7B-Instruct",
+    qg_model: str = "microsoft/Phi-4-mini-instruct",
     eval_source_path: str = "",
     include_full_salience: bool = True,
     include_top10_features: bool = True,
@@ -448,7 +448,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--qg-model",
-        default="Qwen/Qwen2.5-7B-Instruct",
+        default="microsoft/Phi-4-mini-instruct",
         help="QG model id used in ablation runs.",
     )
     parser.add_argument(

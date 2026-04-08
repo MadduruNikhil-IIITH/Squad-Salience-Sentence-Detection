@@ -48,13 +48,13 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--model-path",
-        default="results/run_2000_passages/model.pkl",
-        help="Path to salience model.pkl.",
+        default="results/run_2000_passages/model_full.pkl",
+        help="Path to salience model_full.pkl (all features).",
     )
     parser.add_argument(
         "--scaler-path",
-        default="results/run_2000_passages/scaler.pkl",
-        help="Path to salience scaler.pkl.",
+        default="results/run_2000_passages/scaler_model_full.pkl",
+        help="Path to salience scaler_model_full.pkl (all features).",
     )
     parser.add_argument(
         "--max-examples",
@@ -88,7 +88,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--qg-model",
-        default="Qwen/Qwen2.5-7B-Instruct",
+        default="microsoft/Phi-4-mini-instruct",
         help="Model id used for question generation.",
     )
     parser.add_argument(
@@ -616,7 +616,7 @@ def run_ablation_study(
     threshold: float = 0.55,
     top_k: int = 3,
     num_questions: int = 2,
-    qg_model: str = "Qwen/Qwen2.5-7B-Instruct",
+    qg_model: str = "microsoft/Phi-4-mini-instruct",
     eval_source_path: str = "",
     include_full_salience: bool = True,
     include_top10_features: bool = True,

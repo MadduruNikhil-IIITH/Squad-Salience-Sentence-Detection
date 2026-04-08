@@ -1,0 +1,15 @@
+feature,coefficient
+sentence_position,-1.025630514351808
+lexical_density,-0.6632349337841296
+sentence_position_norm,0.5104567383935077
+noun_ratio,0.5064987897373037
+verb_ratio,0.39111508223933455
+sentence_length_words,0.3155872832163501
+named_entity_density,0.22662205203644678
+causal_marker_ratio,0.21375655664127408
+type_token_ratio,0.15570391246189963
+pronoun_ratio,-0.11870199036079046
+contrast_marker_ratio,-0.08229918155510174
+adj_ratio,0.020114760406257422
+avg_word_length,0.013859850487125774
+noun_verb_ratio,0.004892790676667479

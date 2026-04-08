@@ -7,6 +7,12 @@ import joblib
 import numpy as np
 
 def train_model(df: pd.DataFrame, run_folder: str):
+    """
+    Train a single full model with all available features.
+    
+    DEPRECATED: Use training.py module for new work.
+    Kept for backward compatibility only.
+    """
     cols = [c for c in df.columns if c not in ["para_id","sent_id","sentence","label"]]
     X = df[cols].fillna(0).replace([np.inf, -np.inf], 0)
     y = df["label"]

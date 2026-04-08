@@ -1,0 +1,13 @@
+feature,coefficient
+rst_depth,-0.492014494637207
+intra_clause_density,-0.4014006421787911
+rst_centrality_score,0.2884336887057081
+rst_span_length,0.2884336887057081
+intra_avg_clause_depth,0.28654120326985366
+intra_clause_count,0.17912375906740732
+intra_has_nucleus_satellite_relation,0.11551464568858272
+intra_top_clause_is_nucleus,0.049465258736672256
+rst_is_nucleus,0.0
+rst_relation_type_encoded,0.0
+rst_is_root,0.0
+rst_relation_direction,0.0

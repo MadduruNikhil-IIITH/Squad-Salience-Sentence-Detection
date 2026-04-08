@@ -1,0 +1,13 @@
+feature,coefficient
+bert_surprisal_std,1.3014140050411735
+bert_surprisal_var,-0.8621389810825281
+gpt2_surprisal_sum,0.575556214679525
+bert_surprisal_min,0.3716993418401291
+bert_surprisal_sum,-0.27386871891170633
+gpt2_surprisal_min,-0.23360984616467206
+gpt2_surprisal_var,-0.21778115696208
+bert_surprisal_mean,-0.1631924536244337
+bert_surprisal_max,-0.11745526217234117
+gpt2_surprisal_std,0.0826724777291251
+gpt2_surprisal_max,0.07474500586373511
+gpt2_surprisal_mean,-0.04910762758171895

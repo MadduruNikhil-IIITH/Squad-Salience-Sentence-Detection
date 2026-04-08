@@ -1,0 +1,6 @@
+model_name,num_features,accuracy,precision,recall,f1,auc_roc,top_5_features
+model_linguistic,14,0.6920768307322929,0.7755532139093783,0.7104247104247104,0.7415617128463476,0.7413724949439235,"sentence_position, sentence_length_words, noun_ratio, named_entity_density, lexical_density"
+model_rst_only,12,0.6470588235294118,0.7483370288248337,0.6515444015444015,0.6965944272445821,0.706104829319115,"intra_clause_density, rst_depth, intra_avg_clause_depth, intra_top_clause_is_nucleus, rst_centrality_score"
+model_ling_rst,26,0.6914765906362546,0.7800429184549357,0.7017374517374517,0.7388211382113821,0.7506465649322792,"sentence_position, noun_ratio, intra_clause_density, sentence_length_words, named_entity_density"
+model_surprisal_only,12,0.5984393757503002,0.7171597633136094,0.584942084942085,0.6443381180223285,0.6575657289943003,"gpt2_surprisal_sum, gpt2_surprisal_var, gpt2_surprisal_std, bert_surprisal_sum, bert_surprisal_std"
+model_full,38,0.6872749099639855,0.7851605758582503,0.6843629343629344,0.7313047962867457,0.759488570202856,"gpt2_surprisal_sum, sentence_position, gpt2_surprisal_var, noun_ratio, bert_surprisal_std"

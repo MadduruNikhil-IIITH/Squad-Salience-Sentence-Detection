@@ -11,7 +11,7 @@ from ablation import run_ablation
 from data_stats_and_sampling import load_and_visualize
 from feature_extractor import extract_linguistic_features
 from surprisal import get_surprisal_features
-from classifier import train_model
+from training import train_model, train_ablation_study
 
 nltk.download('punkt', quiet=True)
 nltk.download('averaged_perceptron_tagger', quiet=True)
@@ -62,16 +62,20 @@ for para in tqdm(paragraphs, desc="Passages"):
         end = char_pos + len(sent)
         label = int(any(not(end <= s or char_pos >= e) for s, e in spans))
         
-        ling_features = extract_linguistic_features(sent, i+1, len(sents))
-        surp_features = get_surprisal_features(sent)  # Full token-level + n-grams
+        ling_features = extract_linguistic_features(
+            sent, i+1, len(sents),
+            include_surprisal=True,
+            include_rst=True,
+            full_passage=context,
+            sent_index=i
+        )
         
         all_rows.append({
             "para_id": f"P{pid:06d}",
             "sent_id": f"P{pid:06d}_S{i:03d}",
             "sentence": sent,
             "label": label,
-            **ling_features,
-            **surp_features
+            **ling_features
         })
         char_pos += len(sent) + 1
     pid += 1
@@ -94,7 +98,19 @@ skew_path = f"{run_folder}/class_imbalance_skewness.png"
 plt.savefig(skew_path, dpi=300, bbox_inches='tight')
 plt.close()
 
-# === TRAIN MODEL ===
+# === TRAIN MODELS (Ablation study: linguistic, RST, surprisal, combined) ===
+print("\n" + "="*70)
+print("TRAINING MODELS")
+print("="*70)
+
+# Train ablation study (all model variants)
+ablation_results = train_ablation_study(df, run_folder)
+print(f"\n✓ Ablation study complete:\n{ablation_results.to_string(index=False)}")
+
+# Also train full model (backward compatibility)
+print(f"\n{'='*70}")
+print("TRAINING FULL MODEL (backward compatibility)")
+print(f"{'='*70}")
 results = train_model(df, run_folder)
 
 # === UPDATE GLOBAL JSON ===

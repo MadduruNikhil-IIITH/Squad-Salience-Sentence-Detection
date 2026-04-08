@@ -76,20 +76,31 @@ def run_ablation(run_folder: str = "results/run_2000_passages"):
 
     results = []
 
+    def add_result(X_subset, name):
+        res = evaluate(X_subset, name)
+        results.append(res)
+        print(
+            f"{res['name']:<25}: Acc {res['accuracy']:.4f} | F1 {res['f1_ans']:.4f} | "
+            f"Precision {res['precision_ans']:.4f} | Recall {res['recall_ans']:.4f} ({res['features']} feats)"
+        )
+
     # 1. Top-10 features
     top20_path = f"{run_folder}/top20_features.csv"
     if os.path.exists(top20_path):
         top10_feats = pd.read_csv(top20_path)["feature"].head(10).tolist()
-        res = evaluate(X_full[top10_feats], "Top-10 Features")
-        results.append(res)
-        print(f"{res['name']:<25}: Acc {res['accuracy']:.4f} | F1 {res['f1_ans']:.4f} | Precision {res['precision_ans']:.4f} | Recall {res['recall_ans']:.4f} ({res['features']} feats)")
+        add_result(X_full[top10_feats], "Top-10 Features")
 
-    # 2. Without any surprisal (GPT-2 + BERT)
+    # 2. Feature-group ablations
     surprisal_cols = [c for c in X_full.columns if c.startswith(("gpt2_", "bert_"))]
-    linguistic_cols = [c for c in X_full.columns if c not in surprisal_cols]
-    res = evaluate(X_full[linguistic_cols], "No Surprisal (Linguistic Only)")
-    results.append(res)
-    print(f"{res['name']:<25}: Acc {res['accuracy']:.4f} | F1 {res['f1_ans']:.4f} | Precision {res['precision_ans']:.4f} | Recall {res['recall_ans']:.4f} ({res['features']} feats)")
+    rst_cols = [c for c in X_full.columns if c.startswith(("rst_", "intra_"))]
+    linguistic_cols = [c for c in X_full.columns if c not in surprisal_cols and c not in rst_cols]
+
+    add_result(X_full[linguistic_cols], "Linguistic Only")
+    add_result(X_full[linguistic_cols + surprisal_cols], "No RST (Linguistic + Surprisal)")
+
+    if rst_cols:
+        add_result(X_full[rst_cols], "RST Only")
+        add_result(X_full[linguistic_cols + rst_cols], "Linguistic + RST (No Surprisal)")
 
     # Save full ablation report
     ablation_report = {

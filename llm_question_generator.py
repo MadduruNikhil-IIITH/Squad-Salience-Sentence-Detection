@@ -1,7 +1,9 @@
 import gc
 import json
 import logging
+import os
 import re
+from pathlib import Path
 from threading import Lock
 from typing import Dict, List, Optional
 
@@ -38,24 +40,53 @@ class _GeneratorRuntime:
                 load_in_4bit=True,
                 bnb_4bit_quant_type="nf4",
                 bnb_4bit_use_double_quant=True,
-                bnb_4bit_compute_dtype=torch.bfloat16,
+                bnb_4bit_compute_dtype=torch.float16,
             )
+
+            offload_dir = Path(os.getenv("QG_OFFLOAD_DIR", "results/.hf_offload"))
+            offload_dir.mkdir(parents=True, exist_ok=True)
+
+            max_memory = {
+                0: os.getenv("QG_MAX_GPU_MEM", "7GiB"),
+                "cpu": os.getenv("QG_MAX_CPU_MEM", "48GiB"),
+            }
 
             model_candidates = [preferred_model]
             if preferred_model != _DEFAULT_FALLBACK_MODEL:
                 model_candidates.append(_DEFAULT_FALLBACK_MODEL)
 
             load_error = None
+            candidate_failures = []
             for candidate in model_candidates:
                 try:
                     self.tokenizer = AutoTokenizer.from_pretrained(candidate, use_fast=True)
-                    self.model = AutoModelForCausalLM.from_pretrained(
-                        candidate,
-                        quantization_config=bnb_config,
-                        device_map="auto",
-                        torch_dtype=torch.bfloat16,
-                        low_cpu_mem_usage=True,
-                    )
+
+                    # Attempt 1: all-on-GPU auto map.
+                    try:
+                        self.model = AutoModelForCausalLM.from_pretrained(
+                            candidate,
+                            quantization_config=bnb_config,
+                            device_map="auto",
+                            dtype=torch.float16,
+                            low_cpu_mem_usage=True,
+                        )
+                    except Exception as first_exc:
+                        # Attempt 2: low-VRAM mode with explicit offload for 8GB cards.
+                        LOGGER.warning(
+                            "Primary load failed for %s, retrying with CPU offload: %s",
+                            candidate,
+                            first_exc,
+                        )
+                        self.model = AutoModelForCausalLM.from_pretrained(
+                            candidate,
+                            quantization_config=bnb_config,
+                            device_map="auto",
+                            max_memory=max_memory,
+                            offload_folder=str(offload_dir),
+                            offload_state_dict=True,
+                            dtype=torch.float16,
+                            low_cpu_mem_usage=True,
+                        )
                     self.model_name = candidate
 
                     if self.tokenizer.pad_token is None:
@@ -63,11 +94,17 @@ class _GeneratorRuntime:
                     return
                 except Exception as exc:
                     load_error = exc
+                    candidate_failures.append(
+                        f"{candidate}: {type(exc).__name__}: {exc}"
+                    )
                     self.model = None
                     self.tokenizer = None
                     self.model_name = None
 
-            raise RuntimeError(f"Failed to load any model candidate: {model_candidates}") from load_error
+            raise RuntimeError(
+                "Failed to load any model candidate: "
+                f"{model_candidates}. Details: {' | '.join(candidate_failures)}"
+            ) from load_error
 
     def clear(self) -> None:
         self.model = None
